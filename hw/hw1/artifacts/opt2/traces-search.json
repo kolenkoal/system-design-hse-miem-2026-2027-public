@@ -1,0 +1,197 @@
+{
+  "redaction": "Synthetic trace IDs; only public span names and duration retained.",
+  "traces": [
+    {
+      "traceID": "00000000000000000000000000000001",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "00000000000000000000000000000002",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000003",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "00000000000000000000000000000004",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000005",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000006",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "00000000000000000000000000000007",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000008",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 7
+    },
+    {
+      "traceID": "00000000000000000000000000000009",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 7
+    },
+    {
+      "traceID": "0000000000000000000000000000000a",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "0000000000000000000000000000000b",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "0000000000000000000000000000000c",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "0000000000000000000000000000000d",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "0000000000000000000000000000000e",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "0000000000000000000000000000000f",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "00000000000000000000000000000010",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000011",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 7
+    },
+    {
+      "traceID": "00000000000000000000000000000012",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "00000000000000000000000000000013",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000014",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "00000000000000000000000000000015",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "00000000000000000000000000000016",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 6
+    },
+    {
+      "traceID": "00000000000000000000000000000017",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "00000000000000000000000000000018",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "00000000000000000000000000000019",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "0000000000000000000000000000001a",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 6
+    },
+    {
+      "traceID": "0000000000000000000000000000001b",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "0000000000000000000000000000001c",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "0000000000000000000000000000001d",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    },
+    {
+      "traceID": "0000000000000000000000000000001e",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 4
+    },
+    {
+      "traceID": "0000000000000000000000000000001f",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 3
+    },
+    {
+      "traceID": "00000000000000000000000000000020",
+      "rootServiceName": "soldout",
+      "rootTraceName": "POST /v1/holds/group",
+      "durationMs": 5
+    }
+  ]
+}

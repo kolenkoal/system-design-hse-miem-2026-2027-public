@@ -1,0 +1,38 @@
+File: soldout
+Build ID: a7e28a33fb3d6fe11f17fd6fd1d4b8863aeec15c
+Type: cpu
+Time: 2026-10-26 12:09:12 WET
+Duration: 20s, Total samples = 1.07s ( 5.35%)
+Showing nodes accounting for 0.75s, 70.09% of 1.07s total
+Showing top 30 nodes out of 410
+      flat  flat%   sum%        cum   cum%
+     0.28s 26.17% 26.17%      0.28s 26.17%  internal/runtime/syscall/linux.Syscall6
+     0.15s 14.02% 40.19%      0.15s 14.02%  runtime.futex
+     0.02s  1.87% 42.06%      0.06s  5.61%  github.com/jackc/pgx/v5/pgtype.(*scanPlanCodecSQLScanner).Scan
+     0.02s  1.87% 43.93%      0.02s  1.87%  runtime.casgstatus
+     0.02s  1.87% 45.79%      0.05s  4.67%  runtime.mallocgc
+     0.02s  1.87% 47.66%      0.04s  3.74%  runtime.selectgo
+     0.01s  0.93% 48.60%      0.01s  0.93%  context.WithDeadlineCause.func3
+     0.01s  0.93% 49.53%      0.01s  0.93%  context.value
+     0.01s  0.93% 50.47%      0.01s  0.93%  encoding/hex.Encode (inline)
+     0.01s  0.93% 51.40%      0.01s  0.93%  encoding/json/internal/jsonwire.ConsumeSimpleString
+     0.01s  0.93% 52.34%      0.01s  0.93%  encoding/json/v2.makeStructArshaler.func3
+     0.01s  0.93% 53.27%      0.01s  0.93%  fmt.(*fmt).fmtInteger
+     0.01s  0.93% 54.21%      0.01s  0.93%  github.com/felixge/httpsnoop.(*rwState).doWriteHeader
+     0.01s  0.93% 55.14%      0.01s  0.93%  github.com/felixge/httpsnoop.Wrap
+     0.01s  0.93% 56.07%      0.01s  0.93%  github.com/google/uuid.xtob (inline)
+     0.01s  0.93% 57.01%      0.31s 28.97%  github.com/jackc/pgx/v5.(*Conn).Exec
+     0.01s  0.93% 57.94%      0.02s  1.87%  github.com/jackc/pgx/v5.(*ExtendedQueryBuilder).reset (inline)
+     0.01s  0.93% 58.88%      0.10s  9.35%  github.com/jackc/pgx/v5.(*baseRows).Scan
+     0.01s  0.93% 59.81%      0.03s  2.80%  github.com/jackc/pgx/v5/multitracer.(*Tracer).TraceAcquireStart
+     0.01s  0.93% 60.75%      0.15s 14.02%  github.com/jackc/pgx/v5/pgconn.(*PgConn).peekMessage
+     0.01s  0.93% 61.68%      0.11s 10.28%  github.com/jackc/pgx/v5/pgconn.(*PgConn).receiveMessage
+     0.01s  0.93% 62.62%      0.01s  0.93%  github.com/jackc/pgx/v5/pgtype.TextCodec.PlanScan
+     0.01s  0.93% 63.55%      0.02s  1.87%  github.com/jackc/pgx/v5/pgtype.TryFindUnderlyingTypeScanPlan
+     0.01s  0.93% 64.49%      0.01s  0.93%  github.com/jackc/pgx/v5/pgtype.encodePlanTimestamptzCodecBinary.Encode
+     0.01s  0.93% 65.42%      0.01s  0.93%  github.com/jackc/pgx/v5/pgtype.scanPlanBinaryUUIDToUUIDScanner.Scan
+     0.01s  0.93% 66.36%      0.26s 24.30%  github.com/nikolaysavelev/soldout/internal/booking/adapters/pg.(*Store).InTx.func1
+     0.01s  0.93% 67.29%      0.24s 22.43%  github.com/nikolaysavelev/soldout/internal/booking/app.(*Service).PayOrder
+     0.01s  0.93% 68.22%      0.09s  8.41%  github.com/nikolaysavelev/soldout/internal/booking/app.(*Service).payOrder.func3
+     0.01s  0.93% 69.16%      0.10s  9.35%  github.com/nikolaysavelev/soldout/internal/catalog/app.(*Service).GroupLayout
+     0.01s  0.93% 70.09%      0.01s  0.93%  go.opentelemetry.io/otel/exporters/otlp/otlptrace/internal/tracetransform.links

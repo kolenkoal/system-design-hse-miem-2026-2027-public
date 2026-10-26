@@ -1,0 +1,142 @@
+[
+  {
+    "calls": 2498,
+    "total_exec_time": 1262.9644510000012,
+    "mean_exec_time": 0.5055902526020823,
+    "rows": 2498,
+    "query": "/* catalog.bump_sector_version */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 185.47959300000002,
+    "mean_exec_time": 0.38561245945945943,
+    "rows": 481000,
+    "query": "/* catalog.seats_by_sector */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 139.20874499999982,
+    "mean_exec_time": 0.28941527027027036,
+    "rows": 1249,
+    "query": "/* booking.insert_group_bulk */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 2498,
+    "total_exec_time": 89.918996,
+    "mean_exec_time": 0.03599639551641312,
+    "rows": 2498,
+    "query": "/* catalog.projection_upsert */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 1443,
+    "total_exec_time": 76.29946199999999,
+    "mean_exec_time": 0.05287558004158003,
+    "rows": 1443,
+    "query": "/* booking.get_order */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 1249,
+    "total_exec_time": 68.06736699999996,
+    "mean_exec_time": 0.05449749159327462,
+    "rows": 1249,
+    "query": "/* booking.insert_order_item */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 2498,
+    "total_exec_time": 55.51722700000004,
+    "mean_exec_time": 0.02222467053642917,
+    "rows": 2498,
+    "query": "/* catalog.seat_sector */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 1249,
+    "total_exec_time": 53.69224700000002,
+    "mean_exec_time": 0.04298818815052044,
+    "rows": 1249,
+    "query": "/* ticketing.insert */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 1249,
+    "total_exec_time": 51.34926399999998,
+    "mean_exec_time": 0.041112301040832654,
+    "rows": 1249,
+    "query": "/* booking.update_hold */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 962,
+    "total_exec_time": 41.17264699999998,
+    "mean_exec_time": 0.04279900935550939,
+    "rows": 47080,
+    "query": "/* booking.group_taken_seats */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 12,
+    "total_exec_time": 33.91919,
+    "mean_exec_time": 2.826599166666666,
+    "rows": 216,
+    "query": "[PostgreSQL exporter query; SQL text omitted]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 29.300655999999996,
+    "mean_exec_time": 0.06091612474012473,
+    "rows": 481,
+    "query": "/* notifier.processed_insert */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 28.761153000000004,
+    "mean_exec_time": 0.05979449688149684,
+    "rows": 481,
+    "query": "/* booking.list_user_orders */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 477,
+    "total_exec_time": 28.496725999999992,
+    "mean_exec_time": 0.05974156394129982,
+    "rows": 477,
+    "query": "/* notifier.notification_status */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 1443,
+    "total_exec_time": 27.23794200000002,
+    "mean_exec_time": 0.018875912681912646,
+    "rows": 3747,
+    "query": "/* booking.holds_for_update */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 26.816297000000016,
+    "mean_exec_time": 0.05575113721413722,
+    "rows": 481,
+    "query": "/* queue.insert_admission */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 26.247710000000023,
+    "mean_exec_time": 0.05456904365904367,
+    "rows": 481,
+    "query": "/* payment.insert */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 48,
+    "total_exec_time": 24.079931999999996,
+    "mean_exec_time": 0.5016652500000001,
+    "rows": 48,
+    "query": "[PostgreSQL exporter query; SQL text omitted]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 22.848107000000002,
+    "mean_exec_time": 0.04750126195426195,
+    "rows": 481,
+    "query": "/* notifier.notification_insert */ [SQL text omitted; see the public source]"
+  },
+  {
+    "calls": 481,
+    "total_exec_time": 22.544610000000013,
+    "mean_exec_time": 0.046870291060291024,
+    "rows": 481,
+    "query": "/* booking.holds_in_open_orders */ [SQL text omitted; see the public source]"
+  }
+]

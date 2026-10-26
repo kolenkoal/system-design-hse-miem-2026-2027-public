@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-26T12:16:24.902269+00:00",
+  "stage": "acceptance",
+  "rate": 20,
+  "duration": "60s",
+  "seed": 20261026,
+  "seats_per_event": 80000,
+  "head": "8e8d4037963ef3b58d492aa7378a760bbb4f0477",
+  "dirty": " M soldout/docs/adr/ADR-101-friends.md\n M soldout/spec/soldout-friends.md\n?? hw/hw1/SOLUTION.md\n?? hw/hw1/artifacts/acceptance/\n?? hw/hw1/artifacts/comparison.json\n?? hw/hw1/artifacts/opt2/\n?? soldout/tools/hw1/summarize.py\n",
+  "limits": [
+    {
+      "name": "/soldout-postgres-1",
+      "image": "soldout-postgres:17-hypopg",
+      "image_id": "sha256:7e25ff1113e91209651a57c9329d430bc8cce98672e7e915fe93a92dde45de9b",
+      "nano_cpus": 1000000000,
+      "memory_bytes": 1073741824
+    },
+    {
+      "name": "/soldout-soldout-1",
+      "image": "soldout:lesson-4",
+      "image_id": "sha256:9ccacb5394df2ea03e92ac1f98a54c77d65286264cd7ae59fabe10e7f9aa3add",
+      "nano_cpus": 2000000000,
+      "memory_bytes": 536870912
+    }
+  ]
+}

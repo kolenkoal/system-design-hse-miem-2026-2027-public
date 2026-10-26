@@ -1,0 +1,230 @@
+{
+  "redaction": "Public teaching-stand export: synthetic IDs, relative timestamps; resource metadata, SQL text, attributes, events and links removed. Durations and parent relations preserved.",
+  "trace": {
+    "resourceSpans": [
+      {
+        "scopeSpans": [
+          {
+            "spans": [
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000001",
+                "name": "pgx.acquire",
+                "startTimeUnixNano": "138423",
+                "endTimeUnixNano": "140797",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000002",
+                "name": "catalog.get_event",
+                "startTimeUnixNano": "155255",
+                "endTimeUnixNano": "450247",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000003",
+                "name": "pgx.acquire",
+                "startTimeUnixNano": "506380",
+                "endTimeUnixNano": "512358",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000004",
+                "name": "catalog.get_event",
+                "startTimeUnixNano": "524737",
+                "endTimeUnixNano": "774790",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000005",
+                "name": "pgx.acquire",
+                "startTimeUnixNano": "789332",
+                "endTimeUnixNano": "791919",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000006",
+                "name": "catalog.get_sector",
+                "startTimeUnixNano": "797048",
+                "endTimeUnixNano": "1157415",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000007",
+                "name": "pgx.acquire",
+                "startTimeUnixNano": "1167379",
+                "endTimeUnixNano": "1168735",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000008",
+                "name": "catalog.seats_by_sector",
+                "startTimeUnixNano": "1172297",
+                "endTimeUnixNano": "2000846",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000009",
+                "name": "pgx.acquire",
+                "startTimeUnixNano": "2048711",
+                "endTimeUnixNano": "2051467",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000000a",
+                "name": "sql.begin",
+                "startTimeUnixNano": "2055876",
+                "endTimeUnixNano": "2211131",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000000b",
+                "name": "booking.group_lock",
+                "startTimeUnixNano": "2223468",
+                "endTimeUnixNano": "2427860",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000000c",
+                "name": "booking.find_group",
+                "startTimeUnixNano": "2438416",
+                "endTimeUnixNano": "3016276",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000000d",
+                "name": "booking.group_lock",
+                "startTimeUnixNano": "3029292",
+                "endTimeUnixNano": "3193789",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000000e",
+                "name": "booking.count_user_holds",
+                "startTimeUnixNano": "3203159",
+                "endTimeUnixNano": "3433922",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000000f",
+                "name": "booking.group_lock",
+                "startTimeUnixNano": "3444690",
+                "endTimeUnixNano": "3601386",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000010",
+                "name": "booking.group_taken_seats",
+                "startTimeUnixNano": "3616734",
+                "endTimeUnixNano": "4309191",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000011",
+                "name": "booking.lock_seat",
+                "startTimeUnixNano": "4319959",
+                "endTimeUnixNano": "4471525",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000012",
+                "name": "booking.lock_seat",
+                "startTimeUnixNano": "4480301",
+                "endTimeUnixNano": "4592015",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000013",
+                "name": "booking.lock_seat",
+                "startTimeUnixNano": "4599986",
+                "endTimeUnixNano": "4712802",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000014",
+                "name": "booking.lock_seat",
+                "startTimeUnixNano": "4720645",
+                "endTimeUnixNano": "4836938",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000015",
+                "name": "booking.group_taken_seats",
+                "startTimeUnixNano": "4844188",
+                "endTimeUnixNano": "5019538",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000016",
+                "name": "booking.insert_group_bulk",
+                "startTimeUnixNano": "5036539",
+                "endTimeUnixNano": "5902227",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000017",
+                "name": "outbox.insert",
+                "startTimeUnixNano": "5933855",
+                "endTimeUnixNano": "6219859",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000018",
+                "name": "outbox.delete",
+                "startTimeUnixNano": "6239404",
+                "endTimeUnixNano": "6509976",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "0000000000000019",
+                "name": "sql.commit",
+                "startTimeUnixNano": "6526299",
+                "endTimeUnixNano": "6927621",
+                "parentSpanId": "000000000000001a"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000001a",
+                "name": "booking.CreateGroupHold",
+                "startTimeUnixNano": "34850",
+                "endTimeUnixNano": "6943054",
+                "parentSpanId": "000000000000001b"
+              },
+              {
+                "traceId": "00000000000000000000000000000001",
+                "spanId": "000000000000001b",
+                "name": "POST /v1/holds/group",
+                "startTimeUnixNano": "0",
+                "endTimeUnixNano": "7000840"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
