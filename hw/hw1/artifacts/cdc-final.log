@@ -1,0 +1,15 @@
+      slot_name      | active | confirmed_flush_lsn | wal_behind 
+---------------------+--------+---------------------+------------
+ soldout_outbox_slot | t      | 0/3BD3B760          | 212 kB
+(1 row)
+
+ outbox_rows 
+-------------
+           0
+(1 row)
+
+connector: RUNNING tasks: ['RUNNING']
+
+notifier        outbox.event.order 0          900             900             0               notifier-00000000-0000-4000-8000-000000000001 /HOST_REDACTED    notifier
+notifier        outbox.event.order 1          874             874             0               notifier-00000000-0000-4000-8000-000000000001 /HOST_REDACTED    notifier
+notifier        outbox.event.order 2          869             869             0               notifier-00000000-0000-4000-8000-000000000001 /HOST_REDACTED    notifier

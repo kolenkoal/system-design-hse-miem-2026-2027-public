@@ -10,6 +10,7 @@ services:
         VERSION: ${VERSION:-dev}
     restart: unless-stopped   # break-goroutine: процесс падает после commit и поднимается сам
     environment:
+      EVENTBUS_BUFFER: ${EVENTBUS_BUFFER:-40000}
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
       OTEL_TRACES_SAMPLER_ARG: ${OTEL_TRACES_SAMPLER_ARG:-1.0}   # стенд: 100 %; прод: 1–10 % + tail-sampling в коллекторе
       OTEL_NOISY_SAMPLER_ARG: ${OTEL_NOISY_SAMPLER_ARG:-0.1}     # hold, join, карта зала: 10 % (шторм в фоне), pay и остальное 100 %

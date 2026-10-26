@@ -1,0 +1,39 @@
+File: soldout
+Build ID: a7e28a33fb3d6fe11f17fd6fd1d4b8863aeec15c
+Type: cpu
+Time: 2026-10-26 12:16:48 WET
+Duration: 20s, Total samples = 2.33s (11.65%)
+Showing nodes accounting for 1.46s, 62.66% of 2.33s total
+Dropped 223 nodes (cum <= 0.01s)
+Showing top 30 nodes out of 298
+      flat  flat%   sum%        cum   cum%
+     0.70s 30.04% 30.04%      0.70s 30.04%  internal/runtime/syscall/linux.Syscall6
+     0.18s  7.73% 37.77%      0.18s  7.73%  runtime.futex
+     0.06s  2.58% 40.34%      0.06s  2.58%  runtime.nanotime (inline)
+     0.05s  2.15% 42.49%      0.05s  2.15%  runtime.write1
+     0.03s  1.29% 43.78%      0.34s 14.59%  github.com/jackc/pgx/v5.(*Conn).Query
+     0.03s  1.29% 45.06%      0.13s  5.58%  github.com/jackc/pgx/v5.(*baseRows).Scan
+     0.03s  1.29% 46.35%      0.03s  1.29%  log/slog.appendEscapedJSONString
+     0.03s  1.29% 47.64%      0.03s  1.29%  strconv.appendEscapedRune
+     0.02s  0.86% 48.50%      0.02s  0.86%  context.AfterFunc.func1
+     0.02s  0.86% 49.36%      0.02s  0.86%  encoding/hex.Encode (inline)
+     0.02s  0.86% 50.21%      0.08s  3.43%  fmt.(*pp).doPrintf
+     0.02s  0.86% 51.07%      0.42s 18.03%  github.com/jackc/pgx/v5/pgconn.(*PgConn).flushWithPotentialWriteReadDeadlock
+     0.02s  0.86% 51.93%      0.02s  0.86%  internal/poll.runtime_pollReset
+     0.02s  0.86% 52.79%      0.02s  0.86%  runtime.exitsyscall
+     0.02s  0.86% 53.65%      0.03s  1.29%  runtime.greyobject
+     0.02s  0.86% 54.51%      0.02s  0.86%  runtime.mallocgcSmallScanNoHeaderSC2
+     0.02s  0.86% 55.36%      0.02s  0.86%  runtime.mapaccess2_fast32
+     0.02s  0.86% 56.22%      0.05s  2.15%  runtime.scanObject
+     0.02s  0.86% 57.08%      0.02s  0.86%  runtime.typePointers.next
+     0.02s  0.86% 57.94%      0.20s  8.58%  syscall.read
+     0.02s  0.86% 58.80%      0.04s  1.72%  time.now
+     0.01s  0.43% 59.23%      0.06s  2.58%  fmt.(*pp).printArg
+     0.01s  0.43% 59.66%      0.07s  3.00%  github.com/exaring/otelpgx.(*Tracer).TraceQueryEnd
+     0.01s  0.43% 60.09%      0.16s  6.87%  github.com/jackc/pgx/v5/pgconn.(*PgConn).Exec
+     0.01s  0.43% 60.52%      0.03s  1.29%  github.com/jackc/pgx/v5/pgconn.(*PgConn).execExtendedPrefix
+     0.01s  0.43% 60.94%      0.02s  0.86%  github.com/jackc/pgx/v5/pgconn/ctxwatch.(*ContextWatcher).Watch
+     0.01s  0.43% 61.37%      0.02s  0.86%  github.com/jackc/pgx/v5/pgproto3.(*DataRow).Decode
+     0.01s  0.43% 61.80%      0.17s  7.30%  github.com/jackc/pgx/v5/pgtype.(*Map).Encode
+     0.01s  0.43% 62.23%      0.02s  0.86%  github.com/jackc/pgx/v5/pgtype.(*Map).planScan
+     0.01s  0.43% 62.66%      0.03s  1.29%  github.com/jackc/pgx/v5/pgtype.(*encodePlanArrayCodecBinary).Encode

@@ -23,6 +23,7 @@ func New(svc api.Service) *Handler { return &Handler{svc: svc} }
 // Mount регистрирует маршруты.
 func (h *Handler) Mount(r chi.Router) {
 	r.Post("/v1/holds", h.createHold)
+	r.Post("/v1/holds/group", h.createGroupHold)
 	r.Get("/v1/holds/{id}", h.getHold)
 	r.Delete("/v1/holds/{id}", h.releaseHold)
 	r.Post("/v1/orders", h.createOrder)
@@ -141,6 +142,12 @@ func parseID(w http.ResponseWriter, r *http.Request) (uuid.UUID, bool) {
 
 func mapErr(err error) error {
 	switch {
+	case errors.Is(err, api.ErrNoAdjacentSeats):
+		return httpx.Wrap(http.StatusConflict, "no_adjacent_seats", err)
+	case errors.Is(err, catalogapi.ErrSectorNotFound):
+		return httpx.Wrap(http.StatusNotFound, "not_found", err)
+	case errors.Is(err, catalogapi.ErrValidation):
+		return httpx.Wrap(http.StatusUnprocessableEntity, "validation", err)
 	case errors.Is(err, api.ErrSeatHeld):
 		return httpx.Wrap(http.StatusConflict, "seat_held", err)
 	case errors.Is(err, api.ErrSeatSold):

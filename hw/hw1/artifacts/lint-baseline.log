@@ -1,0 +1,98 @@
+go vet ./...
+go install github.com/fe3dback/go-arch-lint@v1.18.0
+go: downloading github.com/fe3dback/go-arch-lint v1.18.0
+go: downloading github.com/logrusorgru/aurora/v3 v3.0.0
+go: downloading golang.org/x/tools v0.49.0
+go: downloading github.com/fe3dback/go-yaml v1.14.0
+go: downloading golang.org/x/sync v0.22.0
+go: downloading github.com/alecthomas/chroma v0.10.0
+go: downloading golang.org/x/mod v0.40.0
+go: downloading github.com/xeipuuv/gojsonschema v1.2.0
+go: downloading oss.terrastruct.com/d2 v0.5.1
+go: downloading github.com/spf13/cobra v1.7.0
+go: downloading github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
+go: downloading github.com/dlclark/regexp2 v1.8.1
+go: downloading github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
+go: downloading github.com/fatih/color v1.13.0
+go: downloading github.com/mattn/go-isatty v0.0.14
+go: downloading github.com/mattn/go-colorable v0.1.9
+go: downloading oss.terrastruct.com/util-go v0.0.0-20230604222829-11c3c60fec14
+go: downloading github.com/alecthomas/chroma/v2 v2.5.0
+go: downloading gonum.org/v1/plot v0.12.0
+go: downloading github.com/mazznoer/csscolorparser v0.1.3
+go: downloading github.com/lucasb-eyer/go-colorful v1.2.0
+go: downloading github.com/PuerkitoBio/goquery v1.8.0
+go: downloading github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
+go: downloading github.com/rivo/uniseg v0.4.3
+go: downloading github.com/yuin/goldmark v1.5.3
+go: downloading golang.org/x/image v0.3.0
+go: downloading github.com/dop251/goja v0.0.0-20230122112309-96b1610dd4f7
+go: downloading cdr.dev/slog v1.4.2-0.20221206192828-e4803b10ae17
+go: downloading github.com/andybalholm/cascadia v1.3.1
+go: downloading golang.org/x/exp v0.0.0-20221126150942-6ab00d035af9
+go: downloading go.opencensus.io v0.24.0
+go: downloading github.com/go-sourcemap/sourcemap v2.1.3+incompatible
+go: downloading golang.org/x/term v0.45.0
+go: downloading github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da
+/home/student/go/bin/go-arch-lint check --output-color=false
+module: github.com/nikolaysavelev/soldout
+linters:
+   On | Base: component imports # always on
+   On | Advanced: vendor imports # switch 'allow.depOnAnyVendor = false' (or delete) to on
+  Off | Advanced: method calls and dependency injections # switch 'allow.deepScan = true' (or delete) to on
+
+OK - No warnings found
+lint-migrations: ok
+Unable to find image 'semgrep/semgrep:latest' locally
+latest: Pulling from semgrep/semgrep
+ddb971a2a616: Pulling fs layer
+f510851b6b72: Pulling fs layer
+4fd519b8e5db: Pulling fs layer
+72f2d2314c64: Pulling fs layer
+cf42be717841: Pulling fs layer
+197a036d7c64: Pulling fs layer
+bd9ddc54bea9: Pulling fs layer
+d9d256e0d586: Pulling fs layer
+ae55cd145fbf: Pulling fs layer
+f1b18a76fc20: Pulling fs layer
+d9654a5726b6: Pulling fs layer
+e50d9e6da121: Pulling fs layer
+3bd741fcbb79: Pulling fs layer
+1faf70e938e5: Pulling fs layer
+79177ee7cdd6: Pulling fs layer
+97a8a732fdc1: Download complete
+72f2d2314c64: Download complete
+f510851b6b72: Download complete
+4fd519b8e5db: Download complete
+ddb971a2a616: Download complete
+ae55cd145fbf: Download complete
+bd9ddc54bea9: Download complete
+e50d9e6da121: Download complete
+f1b18a76fc20: Download complete
+1faf70e938e5: Download complete
+79177ee7cdd6: Download complete
+197a036d7c64: Download complete
+1faf70e938e5: Pull complete
+197a036d7c64: Pull complete
+cf42be717841: Download complete
+3bd741fcbb79: Download complete
+4fd519b8e5db: Pull complete
+ddb971a2a616: Pull complete
+bd9ddc54bea9: Pull complete
+3bd741fcbb79: Pull complete
+d9654a5726b6: Download complete
+d9d256e0d586: Download complete
+d9d256e0d586: Pull complete
+72f2d2314c64: Pull complete
+f510851b6b72: Pull complete
+ae55cd145fbf: Pull complete
+e50d9e6da121: Pull complete
+f1b18a76fc20: Pull complete
+79177ee7cdd6: Pull complete
+cf42be717841: Pull complete
+d9654a5726b6: Pull complete
+Digest: sha256:3db5c7af55eb1f512eac0abf0ab69a97b52c74b5e9a27314c221aee1a78d7ab2
+Status: Downloaded newer image for semgrep/semgrep:latest
+lint-semgrep: ok (3 файлов)

@@ -1,0 +1,19 @@
+docker compose -f docker-compose.yml -f compose/lesson-02.yml -f compose/lesson-04.yml --profile tools run --rm invariants
+ Container soldout-postgres-1 Running 
+ Container soldout-postgres-1 Waiting 
+ Container soldout-postgres-1 Healthy 
+ Container soldout-invariants-run-eaee43861921 Creating 
+ Container soldout-invariants-run-eaee43861921 Created 
+ID  Инвариант                                                                      Нарушений  Статус
+I7  группа: ровно N смежных мест одного сектора/ряда, event/user/TTL               0          OK
+I8  active + confirmed hold пользователя на мероприятии ≤ 4                        0          OK
+I1  нет двух active hold на одно (event, seat)                                     0          OK
+I2  нет двух tickets на одно (event, seat)                                         0          OK
+I3  у каждого paid заказа есть ticket на каждую позицию                            0          OK
+I4  у пользователя ≤ 4 билетов на мероприятие                                      0          OK
+I6  проекция карты (catalog_seat_state) совпадает с истиной (holds) — с занятия 2  0          OK
+I5  каждому paid заказу — ровно одна notification (с занятия 3)                    0          OK
+
+active holds=76577 confirmed holds=1249 orders=481 paid=481 tickets=1249
+
+Все инварианты соблюдены.

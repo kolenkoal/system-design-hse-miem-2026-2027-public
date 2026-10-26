@@ -1,0 +1,20 @@
+NAME                          CPU %     MEM USAGE / LIMIT
+soldout-k6-load   5.02%     24.75MiB / 15.58GiB
+soldout-soldout-1             14.41%    50.53MiB / 512MiB
+soldout-notifier-1            2.71%     12.49MiB / 128MiB
+soldout-connect-1             4.17%     553.9MiB / 1GiB
+soldout-notifier-lag-1        0.00%     10.74MiB / 48MiB
+soldout-kafka-ui-1            0.02%     271.2MiB / 384MiB
+soldout-grafana-1             0.19%     115.5MiB / 512MiB
+soldout-otel-collector-1      1.76%     58.21MiB / 384MiB
+soldout-alloy-1               0.15%     41.09MiB / 256MiB
+soldout-pgbouncer-1           6.15%     8.176MiB / 15.58GiB
+soldout-postgres-exporter-1   0.00%     8.215MiB / 128MiB
+soldout-pyroscope-1           0.55%     50.93MiB / 768MiB
+soldout-mailgw-1              0.95%     10.25MiB / 64MiB
+soldout-kafka-1               2.79%     444.8MiB / 1GiB
+soldout-tempo-1               0.92%     515.2MiB / 1.5GiB
+soldout-postgres-1            15.70%    411.4MiB / 1GiB
+soldout-prometheus-1          0.00%     42.62MiB / 512MiB
+soldout-valkey-exporter-1     0.00%     8.25MiB / 64MiB
+soldout-valkey-1              0.93%     98.8MiB / 15.58GiB

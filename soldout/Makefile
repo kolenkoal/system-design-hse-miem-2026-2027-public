@@ -116,6 +116,12 @@ seed:
 smoke:
 	$(K6_RUN) --summary-export=/results/smoke-$(STEP).json /scripts/smoke.js
 
+# HW1 V3: весь путь групповой покупки. Одинаковые параметры для всех сравнительных прогонов.
+.PHONY: friends
+friends:
+	$(MAKE) pg-reset
+	$(COMPOSE) --profile load run --rm --no-deps -e FRIENDS_RATE=$(or $(FRIENDS_RATE),20) -e FRIENDS_DURATION=$(or $(FRIENDS_DURATION),60s) -e FRIENDS_MIN_PURCHASES=$(or $(FRIENDS_MIN_PURCHASES),1) -e SEATS_PER_EVENT=$(SEED_SEATS_PER_EVENT) k6 run $(K6_OUT) --summary-export=/results/friends-$(STEP).json /scripts/friends.js
+
 storm:
 	$(MAKE) pg-reset >/dev/null 2>&1 || true
 	$(K6_RUN) --summary-export=/results/storm-$(STEP).json /scripts/storm.js

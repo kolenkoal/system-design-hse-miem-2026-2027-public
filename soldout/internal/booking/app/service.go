@@ -24,6 +24,13 @@ import (
 
 // Tx — операции внутри транзакции.
 type Tx interface {
+	LockUser(ctx context.Context, eventID, userID uuid.UUID) error
+	LockGroupKey(ctx context.Context, key string) error
+	LockGroupSector(ctx context.Context, eventID, sectorID uuid.UUID) error
+	TakenSeats(ctx context.Context, eventID uuid.UUID, seatIDs []int64) (map[int64]bool, error)
+	FindGroup(ctx context.Context, key string) (api.GroupHold, error)
+	InsertGroup(ctx context.Context, group api.GroupHold, key string, seats []catalogapi.Seat) error
+	AppendGroupHeld(ctx context.Context, event api.GroupHeldEvent) error
 	LockSeat(ctx context.Context, eventID uuid.UUID, seatID int64) error
 	CountUserHolds(ctx context.Context, eventID, userID uuid.UUID) (int, error)
 	SeatSold(ctx context.Context, eventID uuid.UUID, seatID int64) (bool, error)
@@ -120,6 +127,9 @@ func (s *Service) CreateHold(ctx context.Context, in api.CreateHoldInput) (api.H
 
 	hold := domain.NewHold(in.EventID, in.SeatID, in.UserID, s.now(), s.opts.HoldTTL)
 	err = s.store.InTx(ctx, func(tx Tx) error {
+		if err := tx.LockUser(ctx, in.EventID, in.UserID); err != nil {
+			return err
+		}
 		// Сериализуем конкурентов на одно место. На L1 — без try-lock: очередь на «горячем» месте (см. занятие 2).
 		if err := tx.LockSeat(ctx, in.EventID, in.SeatID); err != nil {
 			return err

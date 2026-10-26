@@ -1,0 +1,275 @@
+/Library/Developer/CommandLineTools/usr/bin/make pg-reset
+docker compose -f docker-compose.yml -f compose/lesson-02.yml -f compose/lesson-04.yml --profile load run --rm --no-deps -e FRIENDS_RATE=8 -e FRIENDS_DURATION=60s -e FRIENDS_MIN_PURCHASES=456 -e SEATS_PER_EVENT=80000 k6 run -o experimental-prometheus-rw --summary-export=/results/friends-opt1.json /scripts/friends.js
+ Container soldout-k6-load Creating 
+ Container soldout-k6-load Created 
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: /scripts/friends.js
+        output: Prometheus remote write (http://prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 150 max VUs, 1m15s max duration (incl. graceful stop):
+              * friends: 8.00 iterations/s for 1m0s (maxVUs: 30-150, gracefulStop: 15s)
+
+
+running (0m01.0s), 002/030 VUs, 6 complete and 0 interrupted iterations
+friends   [   2% ] 002/030 VUs  0m01.0s/1m0s  8.00 iters/s
+
+running (0m02.0s), 002/030 VUs, 14 complete and 0 interrupted iterations
+friends   [   3% ] 002/030 VUs  0m02.0s/1m0s  8.00 iters/s
+
+running (0m03.0s), 002/030 VUs, 22 complete and 0 interrupted iterations
+friends   [   5% ] 002/030 VUs  0m03.0s/1m0s  8.00 iters/s
+
+running (0m04.0s), 002/030 VUs, 30 complete and 0 interrupted iterations
+friends   [   7% ] 002/030 VUs  0m04.0s/1m0s  8.00 iters/s
+
+running (0m05.0s), 002/030 VUs, 38 complete and 0 interrupted iterations
+friends   [   8% ] 002/030 VUs  0m05.0s/1m0s  8.00 iters/s
+
+running (0m06.0s), 002/030 VUs, 46 complete and 0 interrupted iterations
+friends   [  10% ] 002/030 VUs  0m06.0s/1m0s  8.00 iters/s
+
+running (0m07.0s), 002/030 VUs, 54 complete and 0 interrupted iterations
+friends   [  12% ] 002/030 VUs  0m07.0s/1m0s  8.00 iters/s
+
+running (0m08.0s), 002/030 VUs, 62 complete and 0 interrupted iterations
+friends   [  13% ] 002/030 VUs  0m08.0s/1m0s  8.00 iters/s
+
+running (0m09.0s), 002/030 VUs, 70 complete and 0 interrupted iterations
+friends   [  15% ] 002/030 VUs  0m09.0s/1m0s  8.00 iters/s
+
+running (0m09.8s), 002/030 VUs, 78 complete and 0 interrupted iterations
+friends   [  17% ] 002/030 VUs  0m10.0s/1m0s  8.00 iters/s
+
+running (0m10.9s), 002/030 VUs, 86 complete and 0 interrupted iterations
+friends   [  18% ] 002/030 VUs  0m11.0s/1m0s  8.00 iters/s
+
+running (0m11.8s), 002/030 VUs, 94 complete and 0 interrupted iterations
+friends   [  20% ] 002/030 VUs  0m12.0s/1m0s  8.00 iters/s
+
+running (0m12.9s), 002/030 VUs, 102 complete and 0 interrupted iterations
+friends   [  22% ] 002/030 VUs  0m13.0s/1m0s  8.00 iters/s
+
+running (0m13.8s), 002/030 VUs, 110 complete and 0 interrupted iterations
+friends   [  23% ] 002/030 VUs  0m14.0s/1m0s  8.00 iters/s
+
+running (0m14.8s), 002/030 VUs, 118 complete and 0 interrupted iterations
+friends   [  25% ] 002/030 VUs  0m15.0s/1m0s  8.00 iters/s
+
+running (0m15.9s), 002/030 VUs, 126 complete and 0 interrupted iterations
+friends   [  27% ] 002/030 VUs  0m16.0s/1m0s  8.00 iters/s
+
+running (0m16.8s), 002/030 VUs, 134 complete and 0 interrupted iterations
+friends   [  28% ] 002/030 VUs  0m17.0s/1m0s  8.00 iters/s
+
+running (0m17.8s), 002/030 VUs, 142 complete and 0 interrupted iterations
+friends   [  30% ] 002/030 VUs  0m18.0s/1m0s  8.00 iters/s
+
+running (0m18.8s), 002/030 VUs, 150 complete and 0 interrupted iterations
+friends   [  32% ] 002/030 VUs  0m19.0s/1m0s  8.00 iters/s
+
+running (0m19.7s), 002/030 VUs, 158 complete and 0 interrupted iterations
+friends   [  33% ] 002/030 VUs  0m20.0s/1m0s  8.00 iters/s
+
+running (0m20.7s), 002/030 VUs, 166 complete and 0 interrupted iterations
+friends   [  35% ] 002/030 VUs  0m21.0s/1m0s  8.00 iters/s
+
+running (0m21.7s), 002/030 VUs, 174 complete and 0 interrupted iterations
+friends   [  37% ] 002/030 VUs  0m22.0s/1m0s  8.00 iters/s
+
+running (0m22.7s), 002/030 VUs, 182 complete and 0 interrupted iterations
+friends   [  38% ] 002/030 VUs  0m23.0s/1m0s  8.00 iters/s
+
+running (0m23.7s), 002/030 VUs, 190 complete and 0 interrupted iterations
+friends   [  40% ] 002/030 VUs  0m24.0s/1m0s  8.00 iters/s
+
+running (0m24.7s), 002/030 VUs, 198 complete and 0 interrupted iterations
+friends   [  42% ] 002/030 VUs  0m25.0s/1m0s  8.00 iters/s
+
+running (0m25.7s), 002/030 VUs, 206 complete and 0 interrupted iterations
+friends   [  43% ] 002/030 VUs  0m26.0s/1m0s  8.00 iters/s
+
+running (0m26.7s), 002/030 VUs, 214 complete and 0 interrupted iterations
+friends   [  45% ] 002/030 VUs  0m27.0s/1m0s  8.00 iters/s
+
+running (0m27.7s), 002/030 VUs, 222 complete and 0 interrupted iterations
+friends   [  47% ] 002/030 VUs  0m28.0s/1m0s  8.00 iters/s
+
+running (0m28.7s), 002/030 VUs, 230 complete and 0 interrupted iterations
+friends   [  48% ] 002/030 VUs  0m29.0s/1m0s  8.00 iters/s
+
+running (0m29.6s), 002/030 VUs, 238 complete and 0 interrupted iterations
+friends   [  50% ] 002/030 VUs  0m30.0s/1m0s  8.00 iters/s
+
+running (0m30.6s), 002/030 VUs, 246 complete and 0 interrupted iterations
+friends   [  52% ] 002/030 VUs  0m31.0s/1m0s  8.00 iters/s
+
+running (0m31.6s), 002/030 VUs, 254 complete and 0 interrupted iterations
+friends   [  53% ] 002/030 VUs  0m32.0s/1m0s  8.00 iters/s
+
+running (0m32.6s), 002/030 VUs, 262 complete and 0 interrupted iterations
+friends   [  55% ] 002/030 VUs  0m33.0s/1m0s  8.00 iters/s
+
+running (0m33.6s), 002/030 VUs, 270 complete and 0 interrupted iterations
+friends   [  57% ] 002/030 VUs  0m34.0s/1m0s  8.00 iters/s
+
+running (0m34.6s), 002/030 VUs, 278 complete and 0 interrupted iterations
+friends   [  58% ] 002/030 VUs  0m35.0s/1m0s  8.00 iters/s
+
+running (0m35.6s), 002/030 VUs, 286 complete and 0 interrupted iterations
+friends   [  60% ] 002/030 VUs  0m36.0s/1m0s  8.00 iters/s
+
+running (0m36.6s), 002/030 VUs, 294 complete and 0 interrupted iterations
+friends   [  62% ] 002/030 VUs  0m37.0s/1m0s  8.00 iters/s
+
+running (0m37.6s), 002/030 VUs, 302 complete and 0 interrupted iterations
+friends   [  63% ] 002/030 VUs  0m38.0s/1m0s  8.00 iters/s
+
+running (0m38.6s), 002/030 VUs, 310 complete and 0 interrupted iterations
+friends   [  65% ] 002/030 VUs  0m39.0s/1m0s  8.00 iters/s
+
+running (0m39.6s), 002/030 VUs, 318 complete and 0 interrupted iterations
+friends   [  67% ] 002/030 VUs  0m40.0s/1m0s  8.00 iters/s
+
+running (0m40.4s), 002/030 VUs, 326 complete and 0 interrupted iterations
+friends   [  68% ] 002/030 VUs  0m41.0s/1m0s  8.00 iters/s
+
+running (0m41.4s), 002/030 VUs, 334 complete and 0 interrupted iterations
+friends   [  70% ] 002/030 VUs  0m42.0s/1m0s  8.00 iters/s
+
+running (0m42.4s), 002/030 VUs, 342 complete and 0 interrupted iterations
+friends   [  72% ] 002/030 VUs  0m43.0s/1m0s  8.00 iters/s
+
+running (0m43.4s), 002/030 VUs, 350 complete and 0 interrupted iterations
+friends   [  73% ] 002/030 VUs  0m44.0s/1m0s  8.00 iters/s
+
+running (0m44.4s), 002/030 VUs, 358 complete and 0 interrupted iterations
+friends   [  75% ] 002/030 VUs  0m45.0s/1m0s  8.00 iters/s
+
+running (0m45.4s), 002/030 VUs, 366 complete and 0 interrupted iterations
+friends   [  77% ] 002/030 VUs  0m46.0s/1m0s  8.00 iters/s
+
+running (0m46.4s), 002/030 VUs, 374 complete and 0 interrupted iterations
+friends   [  78% ] 002/030 VUs  0m47.0s/1m0s  8.00 iters/s
+
+running (0m47.4s), 002/030 VUs, 382 complete and 0 interrupted iterations
+friends   [  80% ] 002/030 VUs  0m48.0s/1m0s  8.00 iters/s
+
+running (0m48.4s), 002/030 VUs, 390 complete and 0 interrupted iterations
+friends   [  82% ] 002/030 VUs  0m49.0s/1m0s  8.00 iters/s
+
+running (0m49.4s), 002/030 VUs, 398 complete and 0 interrupted iterations
+friends   [  83% ] 002/030 VUs  0m50.0s/1m0s  8.00 iters/s
+
+running (0m50.3s), 002/030 VUs, 406 complete and 0 interrupted iterations
+friends   [  85% ] 002/030 VUs  0m51.0s/1m0s  8.00 iters/s
+
+running (0m51.3s), 002/030 VUs, 414 complete and 0 interrupted iterations
+friends   [  87% ] 002/030 VUs  0m52.0s/1m0s  8.00 iters/s
+
+running (0m52.3s), 002/030 VUs, 422 complete and 0 interrupted iterations
+friends   [  88% ] 002/030 VUs  0m53.0s/1m0s  8.00 iters/s
+
+running (0m53.3s), 002/030 VUs, 430 complete and 0 interrupted iterations
+friends   [  90% ] 002/030 VUs  0m54.0s/1m0s  8.00 iters/s
+
+running (0m54.3s), 002/030 VUs, 438 complete and 0 interrupted iterations
+friends   [  92% ] 002/030 VUs  0m55.0s/1m0s  8.00 iters/s
+
+running (0m55.3s), 002/030 VUs, 446 complete and 0 interrupted iterations
+friends   [  93% ] 002/030 VUs  0m56.0s/1m0s  8.00 iters/s
+
+running (0m56.3s), 002/030 VUs, 454 complete and 0 interrupted iterations
+friends   [  95% ] 002/030 VUs  0m57.0s/1m0s  8.00 iters/s
+
+running (0m57.3s), 002/030 VUs, 462 complete and 0 interrupted iterations
+friends   [  97% ] 002/030 VUs  0m58.0s/1m0s  8.00 iters/s
+
+running (0m58.3s), 002/030 VUs, 470 complete and 0 interrupted iterations
+friends   [  98% ] 002/030 VUs  0m59.0s/1m0s  8.00 iters/s
+
+running (0m59.3s), 002/030 VUs, 478 complete and 0 interrupted iterations
+friends   [ 100% ] 002/030 VUs  1m00.0s/1m0s  8.00 iters/s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate==1' rate=100.00%
+
+    dropped_iterations
+    ✓ 'count==0' count=0
+
+    friends_5xx
+    ✓ 'rate==0' rate=0.00%
+
+    friends_group_ms
+    ✓ 'p(95)<300' p(95)=7.67ms
+    ✓ 'p(99)<500' p(99)=10.11ms
+
+    friends_join_ms
+    ✓ 'p(99)<500' p(99)=2.8ms
+
+    friends_order_ms
+    ✓ 'p(99)<500' p(99)=4.52ms
+
+    friends_pay_ms
+    ✓ 'p(99)<1000' p(99)=310.33ms
+
+    friends_purchases
+    ✓ 'count>=456' count=481
+
+    friends_tickets_ms
+    ✓ 'p(99)<500' p(99)=1.79ms
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 2886    48.441681/s
+    checks_succeeded...: 100.00% 2886 out of 2886
+    checks_failed......: 0.00%   0 out of 2886
+
+    ✓ join 200
+    ✓ group 201 и N hold
+    ✓ группа в одном ряду
+    ✓ order 201 и сумма N билетов
+    ✓ pay 200 paid
+    ✓ ровно N билетов на места группы
+
+    CUSTOM
+    friends_5xx....................: 0.00%  0 out of 2405
+    friends_group_ms...............: avg=5.15ms   p(50)=4.92ms   p(95)=7.67ms   p(99)=10.11ms  max=18.55ms 
+    friends_join_ms................: avg=1.58ms   p(50)=1.52ms   p(95)=2.2ms    p(99)=2.8ms    max=4.5ms   
+    friends_order_ms...............: avg=2.19ms   p(50)=2.04ms   p(95)=3.39ms   p(99)=4.52ms   max=8.18ms  
+    friends_pay_ms.................: avg=303.36ms p(50)=306.56ms p(95)=309.1ms  p(99)=310.33ms max=321.79ms
+    friends_purchases..............: 481    8.073614/s
+    friends_tickets_ms.............: avg=831.05µs p(50)=754.24µs p(95)=1.41ms   p(99)=1.79ms   max=5.41ms  
+
+    HTTP
+    http_req_duration..............: avg=62.62ms  p(50)=2.14ms   p(95)=307.55ms p(99)=309.1ms  max=321.79ms
+      { expected_response:true }...: avg=62.62ms  p(50)=2.14ms   p(95)=307.55ms p(99)=309.1ms  max=321.79ms
+    http_req_failed................: 0.00%  0 out of 2405
+    http_reqs......................: 2405   40.368068/s
+
+    EXECUTION
+    dropped_iterations.............: 0      0/s
+    iteration_duration.............: avg=317.5ms  p(50)=317.24ms p(95)=323.36ms p(99)=326.55ms max=337.65ms
+    iterations.....................: 481    8.073614/s
+    vus............................: 2      min=2         max=2 
+    vus_max........................: 30     min=30        max=30
+
+    NETWORK
+    data_received..................: 1.6 MB 28 kB/s
+    data_sent......................: 656 kB 11 kB/s
+
+
+
+
+running (0m59.6s), 000/030 VUs, 481 complete and 0 interrupted iterations
+friends ✓ [ 100% ] 000/030 VUs  1m0s  8.00 iters/s

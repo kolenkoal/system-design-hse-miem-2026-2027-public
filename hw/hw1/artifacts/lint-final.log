@@ -1,0 +1,11 @@
+go vet ./...
+/home/student/go/bin/go-arch-lint check --output-color=false
+module: github.com/nikolaysavelev/soldout
+linters:
+   On | Base: component imports # always on
+   On | Advanced: vendor imports # switch 'allow.depOnAnyVendor = false' (or delete) to on
+  Off | Advanced: method calls and dependency injections # switch 'allow.deepScan = true' (or delete) to on
+
+OK - No warnings found
+lint-migrations: ok
+lint-semgrep: ok (3 файлов)

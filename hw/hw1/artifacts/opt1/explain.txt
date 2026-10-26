@@ -1,0 +1,11 @@
+Result  (cost=8.30..8.31 rows=1 width=1) (actual time=0.027..0.027 rows=1 loops=1)
+  Buffers: shared hit=6
+  InitPlan 1
+    ->  Index Only Scan using holds_taken_uidx on holds  (cost=0.28..8.30 rows=1 width=0) (actual time=0.026..0.027 rows=1 loops=1)
+          Index Cond: ((event_id = '00000000-0000-4000-8000-000000000001'::uuid) AND (seat_id = 80001))
+          Heap Fetches: 0
+          Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=224
+Planning Time: 0.654 ms
+Execution Time: 0.052 ms

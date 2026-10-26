@@ -1,0 +1,423 @@
+{
+  "baseline": {
+    "purchases": 481,
+    "http_rps": 40.64693689093065,
+    "group_5xx_rate": 0,
+    "latency_ms": {
+      "join": {
+        "p(50)": 1.411748,
+        "p(95)": 2.06655,
+        "p(99)": 3.735091399999999
+      },
+      "group": {
+        "p(50)": 13.44074,
+        "p(95)": 34.655522,
+        "p(99)": 39.553760999999994
+      },
+      "order": {
+        "p(50)": 1.935585,
+        "p(95)": 3.083491,
+        "p(99)": 4.334962399999999
+      },
+      "pay": {
+        "p(50)": 306.331887,
+        "p(95)": 309.575359,
+        "p(99)": 313.5523502
+      },
+      "tickets": {
+        "p(50)": 0.69267,
+        "p(95)": 1.3178,
+        "p(99)": 2.221769399999999
+      }
+    },
+    "db_top5_seconds": 1.8878058760000047,
+    "trace": {
+      "POST /v1/holds/group": {
+        "count": 1,
+        "ms": 48.608522
+      },
+      "booking.CreateGroupHold": {
+        "count": 1,
+        "ms": 48.398001
+      },
+      "pgx.acquire": {
+        "count": 5,
+        "ms": 0.006757000000000001
+      },
+      "catalog.get_event": {
+        "count": 2,
+        "ms": 0.257988
+      },
+      "catalog.get_sector": {
+        "count": 1,
+        "ms": 0.093414
+      },
+      "catalog.seats_by_sector": {
+        "count": 1,
+        "ms": 0.514499
+      },
+      "sql.begin": {
+        "count": 1,
+        "ms": 0.08028
+      },
+      "booking.group_lock": {
+        "count": 3,
+        "ms": 0.363439
+      },
+      "booking.find_group": {
+        "count": 1,
+        "ms": 0.207902
+      },
+      "booking.count_user_holds": {
+        "count": 1,
+        "ms": 0.142402
+      },
+      "booking.group_seat_taken": {
+        "count": 102,
+        "ms": 23.475905
+      },
+      "booking.lock_seat": {
+        "count": 3,
+        "ms": 1.598563
+      },
+      "booking.insert_group": {
+        "count": 1,
+        "ms": 1.0798
+      },
+      "booking.insert_hold": {
+        "count": 3,
+        "ms": 2.744329
+      },
+      "booking.insert_group_item": {
+        "count": 3,
+        "ms": 4.764355
+      },
+      "outbox.insert": {
+        "count": 1,
+        "ms": 1.821795
+      },
+      "outbox.delete": {
+        "count": 1,
+        "ms": 2.929806
+      },
+      "sql.commit": {
+        "count": 1,
+        "ms": 6.189856
+      }
+    },
+    "storm_hold_p99_ms": 465.9881976,
+    "storm_http_failed_rate": 3.343587000133743e-05,
+    "storm_http_requests": 598160
+  },
+  "opt1": {
+    "purchases": 481,
+    "http_rps": 40.36806768284403,
+    "group_5xx_rate": 0,
+    "latency_ms": {
+      "join": {
+        "p(50)": 1.526221,
+        "p(95)": 2.203881,
+        "p(99)": 2.8089685999999987
+      },
+      "group": {
+        "p(50)": 4.92781,
+        "p(95)": 7.673468,
+        "p(99)": 10.114937
+      },
+      "order": {
+        "p(50)": 2.044994,
+        "p(95)": 3.395863,
+        "p(99)": 4.5214808
+      },
+      "pay": {
+        "p(50)": 306.568582,
+        "p(95)": 309.109992,
+        "p(99)": 310.334129
+      },
+      "tickets": {
+        "p(50)": 0.754244,
+        "p(95)": 1.416894,
+        "p(99)": 1.7986827999999995
+      }
+    },
+    "db_top5_seconds": 1.6574386689999985,
+    "trace": {
+      "pgx.acquire": {
+        "count": 5,
+        "ms": 0.011637000000000003
+      },
+      "catalog.get_event": {
+        "count": 2,
+        "ms": 1.618839
+      },
+      "catalog.get_sector": {
+        "count": 1,
+        "ms": 1.568293
+      },
+      "catalog.seats_by_sector": {
+        "count": 1,
+        "ms": 1.149821
+      },
+      "sql.begin": {
+        "count": 1,
+        "ms": 2.642803
+      },
+      "booking.group_lock": {
+        "count": 3,
+        "ms": 1.992202
+      },
+      "booking.find_group": {
+        "count": 1,
+        "ms": 0.455469
+      },
+      "booking.count_user_holds": {
+        "count": 1,
+        "ms": 0.74252
+      },
+      "booking.group_taken_seats": {
+        "count": 2,
+        "ms": 1.631454
+      },
+      "booking.lock_seat": {
+        "count": 4,
+        "ms": 0.871773
+      },
+      "booking.insert_group": {
+        "count": 1,
+        "ms": 0.367968
+      },
+      "booking.insert_hold": {
+        "count": 4,
+        "ms": 1.158526
+      },
+      "booking.insert_group_item": {
+        "count": 4,
+        "ms": 1.165325
+      },
+      "outbox.insert": {
+        "count": 1,
+        "ms": 0.198362
+      },
+      "outbox.delete": {
+        "count": 1,
+        "ms": 0.138599
+      },
+      "sql.commit": {
+        "count": 1,
+        "ms": 0.638029
+      },
+      "booking.CreateGroupHold": {
+        "count": 1,
+        "ms": 18.039524
+      },
+      "POST /v1/holds/group": {
+        "count": 1,
+        "ms": 18.135435
+      }
+    },
+    "storm_hold_p99_ms": 468.12079716,
+    "storm_http_failed_rate": 1.6953002885401092e-06,
+    "storm_http_requests": 589866
+  },
+  "opt2": {
+    "purchases": 481,
+    "http_rps": 40.471493827966206,
+    "group_5xx_rate": 0,
+    "latency_ms": {
+      "join": {
+        "p(50)": 1.544102,
+        "p(95)": 2.354211,
+        "p(99)": 3.1892424
+      },
+      "group": {
+        "p(50)": 4.574609,
+        "p(95)": 7.145232,
+        "p(99)": 8.632405200000001
+      },
+      "order": {
+        "p(50)": 2.120313,
+        "p(95)": 3.650525,
+        "p(99)": 4.2100096
+      },
+      "pay": {
+        "p(50)": 306.851983,
+        "p(95)": 309.845609,
+        "p(99)": 311.7482248
+      },
+      "tickets": {
+        "p(50)": 0.784835,
+        "p(95)": 1.432937,
+        "p(99)": 1.7991853999999998
+      }
+    },
+    "db_top5_seconds": 1.753871247000001,
+    "trace": {
+      "pgx.acquire": {
+        "count": 5,
+        "ms": 0.015051
+      },
+      "catalog.get_event": {
+        "count": 2,
+        "ms": 0.545045
+      },
+      "catalog.get_sector": {
+        "count": 1,
+        "ms": 0.360367
+      },
+      "catalog.seats_by_sector": {
+        "count": 1,
+        "ms": 0.828549
+      },
+      "sql.begin": {
+        "count": 1,
+        "ms": 0.155255
+      },
+      "booking.group_lock": {
+        "count": 3,
+        "ms": 0.525585
+      },
+      "booking.find_group": {
+        "count": 1,
+        "ms": 0.57786
+      },
+      "booking.count_user_holds": {
+        "count": 1,
+        "ms": 0.230763
+      },
+      "booking.group_taken_seats": {
+        "count": 2,
+        "ms": 0.867807
+      },
+      "booking.lock_seat": {
+        "count": 4,
+        "ms": 0.49238899999999997
+      },
+      "booking.insert_group_bulk": {
+        "count": 1,
+        "ms": 0.865688
+      },
+      "outbox.insert": {
+        "count": 1,
+        "ms": 0.286004
+      },
+      "outbox.delete": {
+        "count": 1,
+        "ms": 0.270572
+      },
+      "sql.commit": {
+        "count": 1,
+        "ms": 0.401322
+      },
+      "booking.CreateGroupHold": {
+        "count": 1,
+        "ms": 6.908204
+      },
+      "POST /v1/holds/group": {
+        "count": 1,
+        "ms": 7.00084
+      }
+    },
+    "storm_hold_p99_ms": 476.9934051399999,
+    "storm_http_failed_rate": 0,
+    "storm_http_requests": 574083
+  },
+  "acceptance": {
+    "purchases": 1200,
+    "http_rps": 100.85177692783228,
+    "group_5xx_rate": 0,
+    "latency_ms": {
+      "join": {
+        "p(50)": 1.3647695,
+        "p(95)": 1.712465,
+        "p(99)": 2.1225808899999987
+      },
+      "group": {
+        "p(50)": 4.1253315,
+        "p(95)": 5.5028166,
+        "p(99)": 6.7818846399999995
+      },
+      "order": {
+        "p(50)": 1.8989045,
+        "p(95)": 2.9819331,
+        "p(99)": 4.42395417
+      },
+      "pay": {
+        "p(50)": 305.0208,
+        "p(95)": 307.1624396,
+        "p(99)": 311.12260545000004
+      },
+      "tickets": {
+        "p(50)": 0.6387775,
+        "p(95)": 1.0054905499999995,
+        "p(99)": 1.5359633799999992
+      }
+    },
+    "db_top5_seconds": 3.804558603000003,
+    "trace": {
+      "POST /v1/holds/group": {
+        "count": 1,
+        "ms": 9.802482
+      },
+      "pgx.acquire": {
+        "count": 5,
+        "ms": 0.016507
+      },
+      "catalog.get_event": {
+        "count": 2,
+        "ms": 0.7064779999999999
+      },
+      "catalog.get_sector": {
+        "count": 1,
+        "ms": 0.549149
+      },
+      "catalog.seats_by_sector": {
+        "count": 1,
+        "ms": 1.735868
+      },
+      "sql.begin": {
+        "count": 1,
+        "ms": 0.402284
+      },
+      "booking.group_lock": {
+        "count": 3,
+        "ms": 1.008505
+      },
+      "booking.find_group": {
+        "count": 1,
+        "ms": 0.318368
+      },
+      "booking.count_user_holds": {
+        "count": 1,
+        "ms": 0.59955
+      },
+      "booking.group_taken_seats": {
+        "count": 2,
+        "ms": 1.960646
+      },
+      "booking.lock_seat": {
+        "count": 4,
+        "ms": 0.797982
+      },
+      "booking.insert_group_bulk": {
+        "count": 1,
+        "ms": 0.468734
+      },
+      "outbox.insert": {
+        "count": 1,
+        "ms": 0.140862
+      },
+      "outbox.delete": {
+        "count": 1,
+        "ms": 0.125771
+      },
+      "sql.commit": {
+        "count": 1,
+        "ms": 0.331374
+      },
+      "booking.CreateGroupHold": {
+        "count": 1,
+        "ms": 9.710644
+      }
+    }
+  }
+}

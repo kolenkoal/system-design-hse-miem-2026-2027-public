@@ -1,0 +1,51 @@
+go test ./... -count=1
+?   	github.com/nikolaysavelev/soldout/cmd/mailgw	[no test files]
+?   	github.com/nikolaysavelev/soldout/cmd/notifier	[no test files]
+?   	github.com/nikolaysavelev/soldout/cmd/soldout	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/booking/adapters/http	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/booking/adapters/pg	3.912s
+?   	github.com/nikolaysavelev/soldout/internal/booking/api	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/booking/app	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/booking/domain	0.525s
+?   	github.com/nikolaysavelev/soldout/internal/catalog/adapters/http	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/catalog/adapters/pg	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/catalog/adapters/valkey	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/catalog/api	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/catalog/app	2.092s
+ok  	github.com/nikolaysavelev/soldout/internal/catalog/domain	1.664s
+ok  	github.com/nikolaysavelev/soldout/internal/notification/adapters/http	2.434s
+ok  	github.com/nikolaysavelev/soldout/internal/notification/adapters/kafka	2.410s
+?   	github.com/nikolaysavelev/soldout/internal/notification/adapters/log	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/notification/adapters/outboxpoll	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/notification/adapters/pg	3.984s
+?   	github.com/nikolaysavelev/soldout/internal/notification/api	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/notification/app	3.197s
+?   	github.com/nikolaysavelev/soldout/internal/payment/adapters/pg	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/payment/adapters/psp	3.632s
+?   	github.com/nikolaysavelev/soldout/internal/payment/api	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/payment/app	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/payment/domain	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/platform/cache	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/platform/config	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/platform/db	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/platform/eventbus	5.424s
+?   	github.com/nikolaysavelev/soldout/internal/platform/faults	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/platform/httpx	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/platform/log	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/platform/metrics	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/platform/otel	4.288s
+ok  	github.com/nikolaysavelev/soldout/internal/platform/outbox	6.307s
+?   	github.com/nikolaysavelev/soldout/internal/queue/adapters/http	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/queue/adapters/pg	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/queue/adapters/valkey	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/queue/api	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/queue/app	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/queue/domain	3.895s
+?   	github.com/nikolaysavelev/soldout/internal/ticketing/adapters/http	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/ticketing/adapters/pg	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/ticketing/api	[no test files]
+?   	github.com/nikolaysavelev/soldout/internal/ticketing/app	[no test files]
+ok  	github.com/nikolaysavelev/soldout/internal/ticketing/domain	5.002s
+?   	github.com/nikolaysavelev/soldout/migrations	[no test files]
+?   	github.com/nikolaysavelev/soldout/seed	[no test files]
+?   	github.com/nikolaysavelev/soldout/tools/invariant-checker	[no test files]

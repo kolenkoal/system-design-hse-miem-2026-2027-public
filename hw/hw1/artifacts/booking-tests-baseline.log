@@ -1,0 +1,61 @@
+=== RUN   TestGroupHold
+2026/10/26 11:55:33 github.com/testcontainers/testcontainers-go - Connected to docker: 
+  Server Version: 29.5.2
+  API Version: 1.54
+  Operating System: Ubuntu 24.04.4 LTS
+  Total Memory: 15957 MB
+  Testcontainers for Go Version: v0.44.0
+  Resolved Docker Host: unix:///home/student/.colima/default/docker.sock
+  Resolved Docker Socket Path: /var/run/docker.sock
+  Test SessionID: 6fa8a737c69a30003caee22c7819c80d7328db14ec0c9f9352207de024d45489
+  Test ProcessID: 00000000-0000-4000-8000-000000000001
+2026/10/26 11:55:33 No image auth found for https://index.docker.io/v1/. Setting empty credentials for the image: postgres:17-alpine. This is expected for public images. Details: credentials not found in native keychain
+2026/10/26 11:55:35 🐳 Creating container for image postgres:17-alpine
+2026/10/26 11:55:35 No image auth found for https://index.docker.io/v1/. Setting empty credentials for the image: testcontainers/ryuk:0.14.0. This is expected for public images. Details: credentials not found in native keychain
+2026/10/26 11:55:39 🐳 Creating container for image testcontainers/ryuk:0.14.0
+2026/10/26 11:55:39 ✅ test container
+2026/10/26 11:55:39 🐳 Starting test container
+2026/10/26 11:55:39 ✅ test container
+2026/10/26 11:55:39 ⏳ Waiting for container id a21a6e91acb4 image: testcontainers/ryuk:0.14.0. Waiting for: all of: [log message "Started", port 8080/tcp to be listening]
+2026/10/26 11:55:39 Shell not found in container
+2026/10/26 11:55:39 🔔 Container is ready: a21a6e91acb4
+2026/10/26 11:55:39 ✅ test container
+2026/10/26 11:55:39 🐳 Starting test container
+2026/10/26 11:55:39 ✅ test container
+2026/10/26 11:55:39 ⏳ Waiting for container id 3927c58187e6 image: postgres:17-alpine. Waiting for: all of: [log message "database system is ready to accept connections" (occurrence: 2)]
+2026/10/26 11:55:40 🔔 Container is ready: 3927c58187e6
+2026/10/26 11:55:40 INFO миграции применены version=23 dirty=false
+=== RUN   TestGroupHold/размеры,_TTL,_повтор_и_конфликт_ключа
+=== RUN   TestGroupHold/нет_блока_и_rollback_при_сбое_outbox
+=== RUN   TestGroupHold/конкуренция_групп_на_единственный_блок
+=== RUN   TestGroupHold/одновременный_повтор_одного_ключа
+=== RUN   TestGroupHold/смешанные_single_и_group_сохраняют_лимит
+=== RUN   TestGroupHold/группа_и_single_на_пересекающееся_место
+=== RUN   TestGroupHold/полный_цикл,_TTL_и_валидация_геометрии
+2026/10/26 11:55:44 🐳 Stopping test container
+2026/10/26 11:55:44 ✅ test container
+2026/10/26 11:55:44 🐳 Terminating test container
+2026/10/26 11:55:44 🚫 test container
+--- PASS: TestGroupHold (10.76s)
+    --- PASS: TestGroupHold/размеры,_TTL,_повтор_и_конфликт_ключа (0.09s)
+    --- PASS: TestGroupHold/нет_блока_и_rollback_при_сбое_outbox (0.48s)
+    --- PASS: TestGroupHold/конкуренция_групп_на_единственный_блок (3.14s)
+    --- PASS: TestGroupHold/одновременный_повтор_одного_ключа (0.05s)
+    --- PASS: TestGroupHold/смешанные_single_и_group_сохраняют_лимит (0.03s)
+    --- PASS: TestGroupHold/группа_и_single_на_пересекающееся_место (0.10s)
+    --- PASS: TestGroupHold/полный_цикл,_TTL_и_валидация_геометрии (0.05s)
+=== RUN   TestConcurrentHolds_ExactlyOneWins
+2026/10/26 11:55:44 🐳 Creating container for image postgres:17-alpine
+2026/10/26 11:55:44 ✅ test container
+2026/10/26 11:55:44 🐳 Starting test container
+2026/10/26 11:55:44 ✅ test container
+2026/10/26 11:55:44 ⏳ Waiting for container id 37305a7de108 image: postgres:17-alpine. Waiting for: all of: [log message "database system is ready to accept connections" (occurrence: 2)]
+2026/10/26 11:55:45 🔔 Container is ready: 37305a7de108
+2026/10/26 11:55:45 INFO миграции применены version=23 dirty=false
+2026/10/26 11:55:45 🐳 Stopping test container
+2026/10/26 11:55:45 ✅ test container
+2026/10/26 11:55:45 🐳 Terminating test container
+2026/10/26 11:55:45 🚫 test container
+--- PASS: TestConcurrentHolds_ExactlyOneWins (1.19s)
+PASS
+ok  	github.com/nikolaysavelev/soldout/internal/booking/adapters/pg	12.370s

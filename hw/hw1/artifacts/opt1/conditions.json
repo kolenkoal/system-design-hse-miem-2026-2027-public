@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-26T12:03:45.291177+00:00",
+  "stage": "opt1",
+  "rate": 8,
+  "duration": "60s",
+  "seed": 20261026,
+  "seats_per_event": 80000,
+  "head": "a03f036dcbff2270952983c95df7ce9f0f6d91d0",
+  "dirty": "?? hw/hw1/artifacts/opt1/\n",
+  "limits": [
+    {
+      "name": "/soldout-postgres-1",
+      "image": "soldout-postgres:17-hypopg",
+      "image_id": "sha256:7e25ff1113e91209651a57c9329d430bc8cce98672e7e915fe93a92dde45de9b",
+      "nano_cpus": 1000000000,
+      "memory_bytes": 1073741824
+    },
+    {
+      "name": "/soldout-soldout-1",
+      "image": "soldout:lesson-4",
+      "image_id": "sha256:2c9b28bb293bd1ecc26e36650bbd4588f59e074013258f78bc07582b259d8b99",
+      "nano_cpus": 2000000000,
+      "memory_bytes": 536870912
+    }
+  ]
+}

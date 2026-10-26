@@ -1,0 +1,16 @@
+# GroupHeld, JSON payload outbox → Debezium EventRouter → outbox.event.group.
+# Ключ Kafka: group_id. Заголовки: id, type=GroupHeld, traceparent.
+# Доставка at-least-once. Потребитель HW2 обязан дедуплицировать по id.
+$schema: https://json-schema.org/draft/2020-12/schema
+title: GroupHeld
+type: object
+additionalProperties: false
+required: [id, group_id, event_id, user_id, sector_id, seat_ids, at]
+properties:
+  id: { type: string, format: uuid }
+  group_id: { type: string, format: uuid }
+  event_id: { type: string, format: uuid }
+  user_id: { type: string, format: uuid }
+  sector_id: { type: string, format: uuid }
+  seat_ids: { type: array, minItems: 1, maxItems: 4, uniqueItems: true, items: { type: integer, minimum: 1 } }
+  at: { type: string, format: date-time }
