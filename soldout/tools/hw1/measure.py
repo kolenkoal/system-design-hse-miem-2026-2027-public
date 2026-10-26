@@ -35,6 +35,14 @@ def get(path):
         return response.read().decode()
 
 
+def error_logs(since):
+    # Шторм пишет сотни тысяч строк. Сохраняем все ошибки/предупреждения, без полного access log.
+    proc = subprocess.Popen(COMPOSE + ['logs', '--no-log-prefix', '--since', str(since), 'soldout'], cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    lines = [line for line in proc.stdout if 'level=ERROR' in line or 'level=WARN' in line or '"level":"ERROR"' in line or '"level":"WARN"' in line]
+    if proc.wait(): raise RuntimeError('Не удалось прочитать журналы soldout')
+    return ''.join(lines) if lines else 'Нет строк уровня ERROR/WARN.\n'
+
+
 def quiet():
     deadline = time.monotonic() + 90
     while time.monotonic() < deadline:
@@ -95,6 +103,7 @@ def main():
     (out/'explain.txt').write_text(sql("EXPLAIN (ANALYZE,BUFFERS) SELECT EXISTS(SELECT 1 FROM holds WHERE event_id='10000000-0000-4000-8000-000000000002' AND seat_id=80001 AND status IN ('active','confirmed'))")+'\n')
     print(f'{args.stage}: k6 exit={k6_rc}, ждём проекцию и уведомления', flush=True)
     (out/'metrics.txt').write_text(quiet())
+    (out/'soldout-errors.log').write_text(error_logs(started))
     inv = run(['make', 'invariants'], check=False)
     (out/'invariants.txt').write_text(inv.stdout)
     time.sleep(5)
@@ -107,20 +116,24 @@ def main():
         traceid = candidates[0]['traceID'].rjust(32, '0')
         (out/'slow-trace.json').write_text(get(f'http://localhost:3200/api/v2/traces/{traceid}'))
         (out/'slow-trace-id.txt').write_text(traceid+'\n')
+    storm_rc = storm_invariants_rc = None
     if args.storm:
         print(f'{args.stage}: контрольный make storm на мероприятии 1', flush=True)
         storm = run(['make', 'storm', f'STEP={args.stage}'], check=False)
+        storm_rc = storm.returncode
         (out/'storm.log').write_text(storm.stdout)
         result = ROOT/f'k6/results/storm-{args.stage}.json'
         if result.exists(): (out/'storm-summary.json').write_bytes(result.read_bytes())
         (out/'metrics-after-storm.txt').write_text(quiet())
         after = run(['make', 'invariants'], check=False)
+        storm_invariants_rc = after.returncode
         (out/'invariants-after-storm.txt').write_text(after.stdout)
-    (out/'exit-codes.json').write_text(json.dumps({'k6': k6_rc, 'invariants': inv.returncode}, indent=2)+'\n')
+        (out/'soldout-errors-after-storm.log').write_text(error_logs(started))
+    (out/'exit-codes.json').write_text(json.dumps({'k6': k6_rc, 'invariants': inv.returncode, 'storm': storm_rc, 'storm_invariants': storm_invariants_rc}, indent=2)+'\n')
     print(f'{args.stage}: артефакты {out}, invariants exit={inv.returncode}', flush=True)
     if k6_rc or inv.returncode:
         print((out/'k6.log').read_text()[-5000:])
-    raise SystemExit(1 if k6_rc or inv.returncode else 0)
+    raise SystemExit(1 if k6_rc or inv.returncode or storm_rc or storm_invariants_rc else 0)
 
 
 if __name__ == '__main__':
