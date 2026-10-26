@@ -159,6 +159,10 @@ func TestConcurrentHolds_ExactlyOneWins(t *testing.T) {
 
 type fakeCatalog struct{ eventID, venueID uuid.UUID }
 
+func (f fakeCatalog) GroupLayout(context.Context, uuid.UUID, uuid.UUID) (catalogapi.SectorLayout, error) {
+	return catalogapi.SectorLayout{}, nil
+}
+
 func (f fakeCatalog) ListEvents(context.Context) ([]catalogapi.Event, error) { return nil, nil }
 func (f fakeCatalog) GetEvent(_ context.Context, id uuid.UUID) (catalogapi.Event, error) {
 	if id != f.eventID {

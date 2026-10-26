@@ -55,6 +55,11 @@ type Seat struct {
 	SeatNo   int       `json:"num"`
 }
 
+// SectorLayout — неизменяемая геометрия seated-сектора, без статусов занятости.
+type SectorLayout struct {
+	Seats []Seat
+}
+
 // SeatMap — сводка карты зала по секторам (с занятия 2 полная карта не отдаётся: см. SectorSeatMap).
 type SeatMap struct {
 	EventID uuid.UUID       `json:"event_id"`
@@ -119,6 +124,7 @@ var (
 
 // Service — публичный сервис каталога.
 type Service interface {
+	GroupLayout(ctx context.Context, eventID, sectorID uuid.UUID) (SectorLayout, error)
 	ListEvents(ctx context.Context) ([]Event, error)
 	GetEvent(ctx context.Context, id uuid.UUID) (Event, error)
 	GetSeat(ctx context.Context, seatID int64) (Seat, error)

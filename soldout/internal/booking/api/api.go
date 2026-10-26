@@ -122,6 +122,43 @@ type CreateHoldInput struct {
 	AdmissionToken string
 }
 
+// CreateGroupHoldInput — атомарное удержание смежных мест V3.
+type CreateGroupHoldInput struct {
+	EventID, SectorID, UserID      uuid.UUID
+	Size                           int
+	AdmissionToken, IdempotencyKey string
+}
+
+// GroupHold — исторический состав группы и текущие статусы её hold.
+type GroupHold struct {
+	ID          uuid.UUID `json:"id"`
+	EventID     uuid.UUID `json:"event_id"`
+	SectorID    uuid.UUID `json:"sector_id"`
+	UserID      uuid.UUID `json:"user_id"`
+	Size        int       `json:"size"`
+	RowNo       int       `json:"row_no"`
+	FirstSeatNo int       `json:"first_seat_no"`
+	Holds       []Hold    `json:"holds"`
+	CreatedAt   time.Time `json:"created_at"`
+	ExpiresAt   time.Time `json:"expires_at"`
+}
+
+// GroupHeldEvent — надёжное событие создания всей группы, отдельный топик от OrderPaid.
+type GroupHeldEvent struct {
+	ID       uuid.UUID `json:"id"`
+	GroupID  uuid.UUID `json:"group_id"`
+	EventID  uuid.UUID `json:"event_id"`
+	UserID   uuid.UUID `json:"user_id"`
+	SectorID uuid.UUID `json:"sector_id"`
+	SeatIDs  []int64   `json:"seat_ids"`
+	At       time.Time `json:"at"`
+}
+
+func (e GroupHeldEvent) OutboxID() uuid.UUID   { return e.ID }
+func (e GroupHeldEvent) AggregateType() string { return "group" }
+func (e GroupHeldEvent) AggregateID() string   { return e.GroupID.String() }
+func (e GroupHeldEvent) EventType() string     { return "GroupHeld" }
+
 // CreateOrderInput — POST /v1/orders.
 type CreateOrderInput struct {
 	HoldIDs        []uuid.UUID
@@ -137,6 +174,8 @@ type PayOrderInput struct {
 
 // Ошибки модуля.
 var (
+	ErrNoAdjacentSeats     = errors.New("booking: нет свободного непрерывного блока мест")
+	ErrGroupNotFound       = errors.New("booking: группа не найдена")
 	ErrSeatHeld            = errors.New("booking: место уже удержано")
 	ErrSeatSold            = errors.New("booking: место уже продано")
 	ErrSeatNotInEvent      = errors.New("booking: место не относится к площадке мероприятия")
@@ -204,6 +243,7 @@ type Service interface {
 	SeatStateReader
 	SoldCounter
 	CreateHold(ctx context.Context, in CreateHoldInput) (Hold, error)
+	CreateGroupHold(ctx context.Context, in CreateGroupHoldInput) (GroupHold, bool, error)
 	ReleaseHold(ctx context.Context, holdID uuid.UUID) error
 	GetHold(ctx context.Context, holdID uuid.UUID) (Hold, error)
 	CreateOrder(ctx context.Context, in CreateOrderInput) (Order, bool, error) // bool: true — заказ создан, false — повтор

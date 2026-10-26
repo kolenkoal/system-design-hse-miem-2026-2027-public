@@ -129,6 +129,44 @@ paths:
         "409": { description: Место занято (`seat_held`), продано (`seat_sold`) или продажи закрыты (`sales_closed`) }
         "422": { description: Лимит 4 билета (`hold_limit`), место не с этой площадки (`seat_not_in_event`), валидация }
 
+  /v1/holds/group:
+    post:
+      tags: [booking]
+      summary: Атомарно удержать 1–4 смежных места одного ряда (V3)
+      description: |
+        Выбирает непрерывный блок в seated-секторе. При конфликте не создаёт ничего.
+        TTL всех мест 10 минут. При конкуренции разрешён пропуск заблокированного блока.
+        Повтор ключа возвращает прежнюю группу с текущими статусами без продления TTL.
+      parameters:
+        - name: X-Admission-Token
+          in: header
+          required: true
+          schema: { type: string }
+        - name: Idempotency-Key
+          in: header
+          required: true
+          description: От 1 до 128 байт UTF-8, глобально уникальный ключ запроса группы
+          schema: { type: string, minLength: 1, maxLength: 128 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [event_id, sector_id, user_id, size]
+              properties:
+                event_id: { type: string, format: uuid }
+                sector_id: { type: string, format: uuid }
+                user_id: { type: string, format: uuid }
+                size: { type: integer, minimum: 1, maximum: 4 }
+      responses:
+        "201": { description: Создана вся группа, content: { application/json: { schema: { $ref: "#/components/schemas/GroupHold" } } } }
+        "200": { description: Повтор ключа, content: { application/json: { schema: { $ref: "#/components/schemas/GroupHold" } } } }
+        "401": { description: Нужен действующий admission (`admission_required`) }
+        "404": { description: Мероприятие или сектор не найден (`not_found`) }
+        "409": { description: Нет блока (`no_adjacent_seats`), продажи закрыты (`sales_closed`) или конфликт ключа (`idempotency_conflict`) }
+        "422": { description: Лимит (`hold_limit`), неправильная площадка/standing/размер/ключ (`validation`) }
+
   /v1/holds/{id}:
     get:
       tags: [booking]
@@ -273,6 +311,20 @@ components:
         application/json:
           schema: { $ref: "#/components/schemas/Error" }
   schemas:
+    GroupHold:
+      type: object
+      required: [id, event_id, sector_id, user_id, size, row_no, first_seat_no, holds, created_at, expires_at]
+      properties:
+        id: { type: string, format: uuid }
+        event_id: { type: string, format: uuid }
+        sector_id: { type: string, format: uuid }
+        user_id: { type: string, format: uuid }
+        size: { type: integer, minimum: 1, maximum: 4 }
+        row_no: { type: integer, minimum: 1 }
+        first_seat_no: { type: integer, minimum: 1 }
+        holds: { type: array, minItems: 1, maxItems: 4, items: { $ref: "#/components/schemas/Hold" } }
+        created_at: { type: string, format: date-time }
+        expires_at: { type: string, format: date-time }
     Error:
       type: object
       properties:

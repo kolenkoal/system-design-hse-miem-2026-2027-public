@@ -25,6 +25,23 @@ type invariant struct {
 }
 
 var invariants = []invariant{
+	{"I7", "группа: ровно N смежных мест одного сектора/ряда, event/user/TTL", `
+		SELECT count(*) FROM (
+		 SELECT g.id FROM hold_groups g
+		 LEFT JOIN hold_group_items i ON i.group_id=g.id
+		 LEFT JOIN holds h ON h.id=i.hold_id
+		 LEFT JOIN seats s ON s.id=i.seat_id
+		 GROUP BY g.id
+		 HAVING count(h.id)<>g.size OR count(DISTINCT s.seat_no)<>g.size
+		 OR min(s.seat_no)<>g.first_seat_no OR max(s.seat_no)<>g.first_seat_no+g.size-1
+		 OR bool_or(s.id IS NULL OR s.sector_id<>g.sector_id OR s.row_no<>g.row_no
+		 OR s.seat_no<>i.seat_no OR s.row_no<>i.row_no OR h.seat_id<>i.seat_id
+		 OR h.event_id<>g.event_id OR h.user_id<>g.user_id OR h.created_at<>g.created_at
+		 OR h.expires_at<>g.expires_at)
+		) bad_groups`},
+	{"I8", "active + confirmed hold пользователя на мероприятии ≤ 4", `
+		SELECT count(*) FROM (SELECT event_id,user_id FROM holds WHERE status IN ('active','confirmed')
+		GROUP BY event_id,user_id HAVING count(*)>4) over_limit`},
 	{"I1", "нет двух active hold на одно (event, seat)", `
 		SELECT count(*) FROM (
 			SELECT event_id, seat_id FROM holds WHERE status = 'active' GROUP BY event_id, seat_id HAVING count(*) > 1
