@@ -1,5 +1,0 @@
->>> rollout r202722 20:27:29
->>> готово 20:27:35
-POD                        IMAGE              READY   STARTED
-soldout-65cfd5d8f-6q85c    soldout:r202722    true    2026-10-02T17:27:31Z
-soldout-6c48c5c74d-nk4hc   soldout:lesson-5   true    2026-10-02T17:26:56Z

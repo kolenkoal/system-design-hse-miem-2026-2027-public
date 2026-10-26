@@ -1,6 +1,0 @@
-pgbouncer t=75s: cl_active=20 cl_waiting=100 sv_active=20
-NAME                        CPU(cores)   MEMORY(bytes)   
-notifier-5479487469-qr75t   3m           8Mi             
-soldout-6fcfd9bbf9-42ggb    340m         68Mi            
-soldout-6fcfd9bbf9-5szcm    359m         59Mi            
-soldout-6fcfd9bbf9-dnszs    366m         73Mi            

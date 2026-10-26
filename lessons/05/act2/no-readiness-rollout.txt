@@ -1,8 +1,0 @@
->>> rollout r193640 БЕЗ readiness и preStop 19:36:46
->>> готово 19:36:50
->>> rollout r193650b БЕЗ readiness и preStop 19:36:56
->>> готово 19:37:02
-POD                        IMAGE              READY   STARTED
-soldout-54f66c4477-nlvj2   soldout:r193409    false   2026-10-02T16:34:20Z
-soldout-6f6b7b7dc-2zl45    soldout:r193650b   true    2026-10-02T16:36:58Z
-soldout-bd845dff8-n8mms    soldout:r193640    true    2026-10-02T16:36:47Z

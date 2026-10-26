@@ -216,12 +216,7 @@ func (r *Repo) SectorStates(ctx context.Context, eventID, sectorID uuid.UUID) ([
 }
 
 // ApplySeatState — проекция + версия сектора в одной транзакции. free → строка удаляется.
-//
-// Применение не зависит от порядка событий одного места: при нескольких репликах held и sold приходят из шин
-// разных процессов. sold окончателен и не откатывается в held; free снимает только строку своего hold (или
-// строку без hold_id, записанную до миграции 0022), поэтому опоздавший free не стирает удержание следующего
-// покупателя.
-func (r *Repo) ApplySeatState(ctx context.Context, eventID uuid.UUID, seatID int64, state api.SeatStatus, holdID uuid.UUID) (uuid.UUID, int64, error) {
+func (r *Repo) ApplySeatState(ctx context.Context, eventID uuid.UUID, seatID int64, state api.SeatStatus) (uuid.UUID, int64, error) {
 	var sectorID uuid.UUID
 	var version int64
 	err := db.WithTx(ctx, r.pool, func(tx pgx.Tx) error {
@@ -238,18 +233,16 @@ func (r *Repo) ApplySeatState(ctx context.Context, eventID uuid.UUID, seatID int
 			return fmt.Errorf("catalog/pg: bump version: %w", err)
 		}
 		if state == api.SeatFree {
-			_, err := tx.Exec(ctx, `/* catalog.projection_delete */ DELETE FROM catalog_seat_state
-				WHERE event_id = $1 AND seat_id = $2 AND state = 'held' AND (hold_id = $3 OR hold_id IS NULL)`, eventID, seatID, holdID)
+			_, err := tx.Exec(ctx, "/* catalog.projection_delete */ DELETE FROM catalog_seat_state WHERE event_id = $1 AND seat_id = $2", eventID, seatID)
 			if err != nil {
 				return fmt.Errorf("catalog/pg: projection delete: %w", err)
 			}
 			return nil
 		}
 		_, err := tx.Exec(ctx, `/* catalog.projection_upsert */
-			INSERT INTO catalog_seat_state (event_id, seat_id, sector_id, state, version, hold_id, updated_at) VALUES ($1, $2, $3, $4, $5, $6, now())
-			ON CONFLICT (event_id, seat_id) DO UPDATE SET state = EXCLUDED.state, version = EXCLUDED.version, hold_id = EXCLUDED.hold_id, updated_at = now()
-			WHERE EXCLUDED.state = 'sold' OR catalog_seat_state.state <> 'sold'`,
-			eventID, seatID, sectorID, state, version, holdID)
+			INSERT INTO catalog_seat_state (event_id, seat_id, sector_id, state, version, updated_at) VALUES ($1, $2, $3, $4, $5, now())
+			ON CONFLICT (event_id, seat_id) DO UPDATE SET state = EXCLUDED.state, version = EXCLUDED.version, updated_at = now()`,
+			eventID, seatID, sectorID, state, version)
 		if err != nil {
 			return fmt.Errorf("catalog/pg: projection upsert: %w", err)
 		}

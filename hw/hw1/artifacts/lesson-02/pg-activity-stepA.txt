@@ -1,8 +1,0 @@
-        state        | wait_event_type | wait_event  | count 
----------------------+-----------------+-------------+-------
- idle in transaction | Client          | ClientRead  |    11
- active              |                 |             |     6
- idle                | Client          | ClientRead  |     3
- active              | Client          | ClientWrite |     1
-(4 rows)
-

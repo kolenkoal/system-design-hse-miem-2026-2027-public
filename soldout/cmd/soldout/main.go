@@ -3,9 +3,9 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
 	"fmt"
-	"net"
 	"net/http"
 	"net/http/pprof"
 	"os"
@@ -199,17 +199,24 @@ func run() error {
 		}, logger).Run(bgCtx)
 		return nil
 	})
-	ln, err := net.Listen("tcp", cfg.HTTPAddr)
-	if err != nil {
-		return fmt.Errorf("listen %s: %w", cfg.HTTPAddr, err)
-	}
 	g.Go(func() error {
 		logger.Info("HTTP-сервер слушает", "addr", cfg.HTTPAddr)
-		// сигнал или падение соседней горутины: начатые запросы дорабатывают (httpx.ServeUntil, тест там же)
-		err := httpx.ServeUntil(gctx, srv, ln, cfg.ShutdownTimeout, logger)
+		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+			return err
+		}
+		return nil
+	})
+	g.Go(func() error {
+		<-gctx.Done() // сигнал или падение сервера
+		logger.Info("остановка: ждём завершения запросов", "timeout", cfg.ShutdownTimeout.String())
+		shutdownCtx, cancel := context.WithTimeout(context.Background(), cfg.ShutdownTimeout)
+		defer cancel()
+		if err := srv.Shutdown(shutdownCtx); err != nil {
+			logger.Warn("HTTP-сервер остановлен принудительно", "err", err)
+		}
 		stopBackground() // expirer
 		stopBus()        // шина дочитывает буфер (drain) и завершает воркеры
-		return err
+		return nil
 	})
 	if err := g.Wait(); err != nil {
 		return err

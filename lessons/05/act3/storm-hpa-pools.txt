@@ -1,5 +1,0 @@
-pgbouncer, 85-я секунда: cl_active=35 cl_waiting=85 sv_active=20
-NAME                        CPU(cores)   MEMORY(bytes)   
-notifier-594c87b5fb-wszqc   4m           27Mi            
-soldout-6c48c5c74d-rqj6m    450m         74Mi            
-soldout-6c48c5c74d-znc7r    458m         104Mi           

@@ -1,7 +1,0 @@
->>> rollout r194137 19:41:44
->>> готово 19:41:59
-POD                        IMAGE             READY   STARTED
-soldout-658cf94658-2n4b9   soldout:r194137   true    2026-10-02T16:41:47Z
-soldout-658cf94658-tsdkk   soldout:r194137   true    2026-10-02T16:41:45Z
-soldout-66c575c7c9-n2vjq   soldout:r193924   false   2026-10-02T16:40:31Z
-soldout-66c575c7c9-qsgbn   soldout:r193924   false   2026-10-02T16:39:34Z

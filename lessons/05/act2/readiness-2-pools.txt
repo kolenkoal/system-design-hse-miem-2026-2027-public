@@ -1,7 +1,0 @@
-t=10s pods=2 cl_active=20 cl_waiting=60 sv_active=20 maxwait_us=51059
-t=20s pods=2 cl_active=20 cl_waiting=60 sv_active=20 maxwait_us=6225
-t=25s pods=4 cl_active=26 cl_waiting=100 sv_active=20 maxwait_us=96540
-t=30s pods=4 cl_active=91 cl_waiting=68 sv_active=20 maxwait_us=33813
-t=35s pods=4 cl_active=60 cl_waiting=60 sv_active=20 maxwait_us=85132
-t=40s pods=2 cl_active=20 cl_waiting=60 sv_active=20 maxwait_us=45415
-t=50s pods=2 cl_active=20 cl_waiting=60 sv_active=20 maxwait_us=47508

@@ -1,3 +1,0 @@
-notifier        outbox.event.order 2          7792            7792            0               notifier-96f52dd2-c368-43ba-92d9-9a9173eb0754 /172.27.0.21    notifier
-notifier        outbox.event.order 0          7749            7749            0               notifier-b0d0344d-3ae3-426f-a959-dcf9f2846f93 /172.27.0.20    notifier
-notifier        outbox.event.order 1          7552            7552            0               notifier-4faa8a4f-8629-4eac-bdc2-b8ccfe261115 /172.27.0.22    notifier

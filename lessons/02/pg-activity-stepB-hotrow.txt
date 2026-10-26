@@ -1,9 +1,0 @@
-             state             | wait_event_type | wait_event | count 
--------------------------------+-----------------+------------+-------
- idle in transaction           | Client          | ClientRead |    12
- idle                          | Client          | ClientRead |     4
- idle in transaction (aborted) | Client          | ClientRead |     3
- active                        | Lock            | advisory   |     1
- idle in transaction           |                 |            |     1
-(5 rows)
-

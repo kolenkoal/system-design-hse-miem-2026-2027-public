@@ -483,6 +483,6 @@ erDiagram
 | advisory-lock на горячем ряду | сотни сессий с `wait_event = advisory`, p99 hold 1.7 с | шаг C: `INSERT ... ON CONFLICT DO NOTHING RETURNING` по partial unique index, плюс `POST /v1/holds/any` |
 | допуск выдается сразу, очереди нет | весь трафик идет в консистентную часть | шаг D: настоящая очередь и admission rate |
 | билет и уведомление выпускаются внутри `pay` | падение после commit теряет билет, I3 нарушается | занятие 3: outbox, CDC, отдельные потребители |
-| нет аутентификации и rate limit | боты неотличимы от людей | занятие 8 |
+| нет аутентификации и rate limit | боты неотличимы от людей | занятие 6 |
 
 Полные цифры baseline: `lessons/02/baseline.md`. Решение о стартовой архитектуре и список осознанных упрощений: `docs/adr/ADR-001-modular-monolith.md`.

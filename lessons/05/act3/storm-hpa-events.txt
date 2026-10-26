@@ -1,3 +1,0 @@
-2m21s       Normal    SuccessfulRescale                horizontalpodautoscaler/soldout   New size: 1; reason: All metrics below target
-81s         Normal    SuccessfulRescale                horizontalpodautoscaler/soldout   New size: 2; reason: cpu resource utilization (perc
-51s         Normal    SuccessfulRescale                horizontalpodautoscaler/soldout   New size: 3; reason: cpu resource utilization (perc

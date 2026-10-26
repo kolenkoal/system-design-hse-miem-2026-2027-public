@@ -1,4 +1,0 @@
-$ helm template soldout deploy/charts/soldout -f values-k3d.yaml --set mailgw.enabled=true | kubeconform -strict; conftest test --combine
-Summary: 15 resources found parsing stdin - Valid: 15, Invalid: 0, Errors: 0, Skipped: 0
-
-6 tests, 6 passed, 0 warnings, 0 failures, 0 exceptions

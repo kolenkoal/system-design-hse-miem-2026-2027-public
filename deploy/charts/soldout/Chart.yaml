@@ -1,6 +1,0 @@
-apiVersion: v2
-name: soldout
-description: Приложения soldout в Kubernetes (монолит soldout и сервис notifier). Stateful-сервисы живут вне кластера.
-type: application
-version: 0.5.0
-appVersion: "lesson-5"

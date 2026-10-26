@@ -1,8 +1,0 @@
-        state        | wait_event_type | wait_event | count 
----------------------+-----------------+------------+-------
- active              | LWLock          | WALWrite   |    18
- active              | IO              | WalSync    |     1
- idle                | Client          | ClientRead |     1
- idle in transaction | Client          | ClientRead |     1
-(4 rows)
-

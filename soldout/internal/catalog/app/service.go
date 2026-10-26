@@ -39,8 +39,7 @@ type Repository interface {
 	SectorCounts(ctx context.Context, eventID uuid.UUID) (map[uuid.UUID]domain.SectorCounts, error)
 	SectorStates(ctx context.Context, eventID, sectorID uuid.UUID) ([]domain.SeatState, int64, error)
 	// ApplySeatState обновляет проекцию и инкрементирует версию сектора в одной транзакции; возвращает sector_id и новую версию.
-	// Результат не зависит от порядка событий одного места (реплики): holdID — hold, породивший событие.
-	ApplySeatState(ctx context.Context, eventID uuid.UUID, seatID int64, state api.SeatStatus, holdID uuid.UUID) (uuid.UUID, int64, error)
+	ApplySeatState(ctx context.Context, eventID uuid.UUID, seatID int64, state api.SeatStatus) (uuid.UUID, int64, error)
 }
 
 // Cache — кэш карты сектора (реализация в adapters/valkey). Версия — из БД.
@@ -254,7 +253,7 @@ func (s *Service) HandleSeatState(ctx context.Context, e eventbus.Event) error {
 	default:
 		state = api.SeatFree
 	}
-	sectorID, version, err := s.repo.ApplySeatState(ctx, ev.EventID, ev.SeatID, state, ev.HoldID)
+	sectorID, version, err := s.repo.ApplySeatState(ctx, ev.EventID, ev.SeatID, state)
 	if err != nil {
 		return err
 	}
