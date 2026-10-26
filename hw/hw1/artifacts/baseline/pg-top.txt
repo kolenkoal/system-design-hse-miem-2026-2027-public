@@ -1,0 +1,14 @@
+ calls | total_ms | mean_ms |  rows  | hit_pct |                                                query                                                 
+-------+----------+---------+--------+---------+------------------------------------------------------------------------------------------------------
+  2498 |   1248.2 |    0.50 |   2498 |   100.0 | /* catalog.bump_sector_version */ [SQL text omitted]
+ 48825 |    313.2 |    0.01 |  48825 |   100.0 | /* booking.group_seat_taken */ [SQL text omitted]
+   481 |    170.0 |    0.35 | 481000 |   100.0 | /* catalog.seats_by_sector */ [SQL text omitted]
+  2498 |     82.4 |    0.03 |   2498 |   100.0 | /* catalog.projection_upsert */ [SQL text omitted]
+  1249 |     74.0 |    0.06 |   1249 |   100.0 | /* booking.insert_hold */ [SQL text omitted]
+  1249 |     64.3 |    0.05 |   1249 |   100.0 | /* booking.insert_group_item */ [SQL text omitted]
+  1443 |     60.7 |    0.04 |   1443 |   100.0 | /* booking.get_order */ [SQL text omitted]
+  1249 |     59.3 |    0.05 |   1249 |   100.0 | /* booking.insert_order_item */ [SQL text omitted]
+  1249 |     51.3 |    0.04 |   1249 |   100.0 | /* ticketing.insert */ [SQL text omitted]
+  2498 |     48.7 |    0.02 |   2498 |   100.0 | /* catalog.seat_sector */ [SQL text omitted]
+(10 rows)
+

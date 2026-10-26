@@ -81,7 +81,12 @@ def main():
         time.sleep(5)
         (out/'docker-stats.txt').write_text(run(['make', 'docker-stats'], check=False).stdout)
         (out/'pg-activity.txt').write_text(run(['make', 'pg-activity'], check=False).stdout)
-        (out/'pprof.txt').write_text(run(['make', 'pprof-top', f'STEP={args.stage}'], check=False).stdout)
+        (out/'pprof-command.log').write_text(run(['make', 'pprof-top', f'STEP={args.stage}'], check=False).stdout)
+        profile = ROOT/f'k6/results/pprof-top-{args.stage}.txt'
+        if not profile.exists() or 'flat' not in profile.read_text():
+            load.wait()
+            raise RuntimeError('make pprof-top не сохранил непустой профиль')
+        (out/'pprof.txt').write_bytes(profile.read_bytes())
         k6_rc = load.wait()
     summary = ROOT/f'k6/results/friends-{args.stage}.json'
     if summary.exists(): (out/'k6-summary.json').write_bytes(summary.read_bytes())

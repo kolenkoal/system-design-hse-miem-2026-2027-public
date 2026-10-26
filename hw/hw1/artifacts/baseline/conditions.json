@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-26T11:58:03.216956+00:00",
+  "stage": "baseline",
+  "rate": 8,
+  "duration": "60s",
+  "seed": 20261026,
+  "seats_per_event": 80000,
+  "head": "4a150509941bfb34d7fd889b04394d4fbca01a0b",
+  "dirty": "A  hw/hw1/artifacts/booking-tests-baseline.log\nA  hw/hw1/artifacts/lint-baseline.log\nA  hw/hw1/artifacts/test-baseline.log\nM  soldout/Makefile\nM  soldout/api/openapi.yaml\nM  soldout/compose/lesson-04.yml\nA  soldout/docs/adr/ADR-101-friends.md\nA  soldout/internal/booking/adapters/http/group.go\nM  soldout/internal/booking/adapters/http/handlers.go\nA  soldout/internal/booking/adapters/pg/group.go\nA  soldout/internal/booking/adapters/pg/group_integration_test.go\nM  soldout/internal/booking/adapters/pg/store_integration_test.go\nM  soldout/internal/booking/api/api.go\nA  soldout/internal/booking/app/group.go\nM  soldout/internal/booking/app/service.go\nA  soldout/internal/booking/domain/group.go\nA  soldout/internal/booking/domain/group_test.go\nM  soldout/internal/catalog/api/api.go\nA  soldout/internal/catalog/app/group.go\nA  soldout/k6/friends.js\nA  soldout/migrations/0023_hold_groups.down.sql\nA  soldout/migrations/0023_hold_groups.up.sql\nA  soldout/spec/events/group-held.yaml\nA  soldout/spec/soldout-friends.md\nA  soldout/tools/hw1/measure.py\nM  soldout/tools/invariant-checker/main.go\n?? hw/hw1/artifacts/baseline/\n",
+  "limits": [
+    {
+      "name": "/soldout-postgres-1",
+      "image": "soldout-postgres:17-hypopg",
+      "image_id": "sha256:7e25ff1113e91209651a57c9329d430bc8cce98672e7e915fe93a92dde45de9b",
+      "nano_cpus": 1000000000,
+      "memory_bytes": 1073741824
+    },
+    {
+      "name": "/soldout-soldout-1",
+      "image": "soldout:lesson-4",
+      "image_id": "sha256:cd5a2d7e34224e6e25f28f90aa8a88668b1f61872e28cab518a11ce48b2ca3e1",
+      "nano_cpus": 2000000000,
+      "memory_bytes": 536870912
+    }
+  ]
+}

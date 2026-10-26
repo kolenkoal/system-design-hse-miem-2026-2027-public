@@ -1,0 +1,6 @@
+ state  | wait_event_type |     wait_event      | count 
+--------+-----------------+---------------------+-------
+ idle   | Client          | ClientRead          |    14
+ active | Client          | WalSenderWaitForWal |     1
+(2 rows)
+

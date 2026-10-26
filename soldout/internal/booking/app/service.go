@@ -27,7 +27,7 @@ type Tx interface {
 	LockUser(ctx context.Context, eventID, userID uuid.UUID) error
 	LockGroupKey(ctx context.Context, key string) error
 	LockGroupSector(ctx context.Context, eventID, sectorID uuid.UUID) error
-	SeatTaken(ctx context.Context, eventID uuid.UUID, seatID int64) (bool, error)
+	TakenSeats(ctx context.Context, eventID uuid.UUID, seatIDs []int64) (map[int64]bool, error)
 	FindGroup(ctx context.Context, key string) (api.GroupHold, error)
 	InsertGroup(ctx context.Context, group api.GroupHold, key string, seats []catalogapi.Seat) error
 	AppendGroupHeld(ctx context.Context, event api.GroupHeldEvent) error

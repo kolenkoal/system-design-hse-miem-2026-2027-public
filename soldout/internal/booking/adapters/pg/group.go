@@ -31,15 +31,23 @@ func (q *queries) LockGroupSector(ctx context.Context, eventID, sectorID uuid.UU
 	return q.lockGroup(ctx, "booking.group.sector:"+eventID.String()+":"+sectorID.String())
 }
 
-// SeatTaken читает истину booking, включая confirmed и ещё не обработанные expirer active.
-func (q *queries) SeatTaken(ctx context.Context, eventID uuid.UUID, seatID int64) (bool, error) {
-	var taken bool
-	err := q.db.QueryRow(ctx, `/* booking.group_seat_taken */ SELECT EXISTS (
-		SELECT 1 FROM holds WHERE event_id=$1 AND seat_id=$2 AND status IN ('active','confirmed'))`, eventID, seatID).Scan(&taken)
+// TakenSeats читает занятость только запрошенных мест одним SQL, без N+1 на заполненных рядах.
+func (q *queries) TakenSeats(ctx context.Context, eventID uuid.UUID, seatIDs []int64) (map[int64]bool, error) {
+	rows, err := q.db.Query(ctx, `/* booking.group_taken_seats */
+		SELECT seat_id FROM holds WHERE event_id=$1 AND seat_id=ANY($2) AND status IN ('active','confirmed')`, eventID, seatIDs)
 	if err != nil {
-		return false, fmt.Errorf("booking/pg: занятость места: %w", err)
+		return nil, fmt.Errorf("booking/pg: занятость мест: %w", err)
 	}
-	return taken, nil
+	defer rows.Close()
+	taken := make(map[int64]bool)
+	for rows.Next() {
+		var id int64
+		if err := rows.Scan(&id); err != nil {
+			return nil, fmt.Errorf("booking/pg: чтение занятого места: %w", err)
+		}
+		taken[id] = true
+	}
+	return taken, rows.Err()
 }
 
 func (q *queries) FindGroup(ctx context.Context, key string) (api.GroupHold, error) {

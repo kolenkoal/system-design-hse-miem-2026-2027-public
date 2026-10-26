@@ -69,16 +69,20 @@ func (s *Service) CreateGroupHold(ctx context.Context, in api.CreateGroupHoldInp
 		if err := tx.LockGroupSector(ctx, in.EventID, in.SectorID); err != nil {
 			return err
 		}
+		sectorIDs := make([]int64, len(layout.Seats))
+		for i, seat := range layout.Seats {
+			sectorIDs[i] = seat.ID
+		}
+		taken, err := tx.TakenSeats(ctx, in.EventID, sectorIDs)
+		if err != nil {
+			return err
+		}
 		for _, block := range blocks {
 			// Сначала проверяем кандидата. После блокировки повторяем проверку:
 			// одиночный hold не берёт блокировку сектора и мог успеть занять место.
 			free := true
 			for _, seat := range block {
-				taken, err := tx.SeatTaken(ctx, in.EventID, seat.ID)
-				if err != nil {
-					return err
-				}
-				if taken {
+				if taken[seat.ID] {
 					free = false
 					break
 				}
@@ -96,17 +100,14 @@ func (s *Service) CreateGroupHold(ctx context.Context, in api.CreateGroupHoldInp
 					return err
 				}
 			}
-			for _, id := range ids {
-				taken, err := tx.SeatTaken(ctx, in.EventID, id)
-				if err != nil {
-					return err
-				}
-				if taken {
-					free = false
-					break
-				}
+			current, err := tx.TakenSeats(ctx, in.EventID, ids)
+			if err != nil {
+				return err
 			}
-			if !free {
+			if len(current) > 0 {
+				for id := range current {
+					taken[id] = true
+				}
 				continue
 			}
 			now := s.now()
